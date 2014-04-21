@@ -1,0 +1,531 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AACD77B31905C051008832FB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACD77B21905C051008832FB /* Cocoa.framework */; };
+		AACD77BD1905C051008832FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AACD77BB1905C051008832FB /* InfoPlist.strings */; };
+		AACD77C81905C051008832FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACD77C71905C051008832FB /* XCTest.framework */; };
+		AACD77C91905C051008832FB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACD77B21905C051008832FB /* Cocoa.framework */; };
+		AACD77CC1905C051008832FB /* NavNodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACD77AF1905C051008832FB /* NavNodeKit.framework */; };
+		AACD77D21905C051008832FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AACD77D01905C051008832FB /* InfoPlist.strings */; };
+		AACD77D41905C051008832FB /* NavNodeKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD77D31905C051008832FB /* NavNodeKitTests.m */; };
+		AACD77E01905C0A5008832FB /* NavNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AACD77DE1905C0A5008832FB /* NavNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AACD77E11905C0A5008832FB /* NavNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD77DF1905C0A5008832FB /* NavNode.m */; };
+		AACD77F71905C4A7008832FB /* FoundationCategoriesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACD77F11905C485008832FB /* FoundationCategoriesKit.framework */; };
+		AACD780B1905C74C008832FB /* NavNodeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AACD77BF1905C051008832FB /* NavNodeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AACD77CA1905C051008832FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AACD77A61905C051008832FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AACD77AE1905C051008832FB;
+			remoteInfo = NavNodeKit;
+		};
+		AACD77F01905C485008832FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AACD77EB1905C485008832FB /* FoundationCategoriesKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAE31E8D18FF1E3F00405754;
+			remoteInfo = FoundationCategoriesKit;
+		};
+		AACD77F21905C485008832FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AACD77EB1905C485008832FB /* FoundationCategoriesKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAE31EA418FF1E3F00405754;
+			remoteInfo = FoundationCategoriesKitTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AACD77AF1905C051008832FB /* NavNodeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavNodeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AACD77B21905C051008832FB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AACD77B51905C051008832FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AACD77B61905C051008832FB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AACD77B71905C051008832FB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		AACD77BA1905C051008832FB /* NavNodeKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavNodeKit-Info.plist"; sourceTree = "<group>"; };
+		AACD77BC1905C051008832FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AACD77BE1905C051008832FB /* NavNodeKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NavNodeKit-Prefix.pch"; sourceTree = "<group>"; };
+		AACD77BF1905C051008832FB /* NavNodeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavNodeKit.h; sourceTree = "<group>"; };
+		AACD77C61905C051008832FB /* NavNodeKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavNodeKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AACD77C71905C051008832FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AACD77CF1905C051008832FB /* NavNodeKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavNodeKitTests-Info.plist"; sourceTree = "<group>"; };
+		AACD77D11905C051008832FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AACD77D31905C051008832FB /* NavNodeKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavNodeKitTests.m; sourceTree = "<group>"; };
+		AACD77DE1905C0A5008832FB /* NavNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavNode.h; sourceTree = "<group>"; };
+		AACD77DF1905C0A5008832FB /* NavNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavNode.m; sourceTree = "<group>"; };
+		AACD77EB1905C485008832FB /* FoundationCategoriesKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationCategoriesKit.xcodeproj; path = ../FoundationCategoriesKit/FoundationCategoriesKit.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AACD77AB1905C051008832FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACD77F71905C4A7008832FB /* FoundationCategoriesKit.framework in Frameworks */,
+				AACD77B31905C051008832FB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AACD77C31905C051008832FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACD77C91905C051008832FB /* Cocoa.framework in Frameworks */,
+				AACD77C81905C051008832FB /* XCTest.framework in Frameworks */,
+				AACD77CC1905C051008832FB /* NavNodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AACD77A51905C051008832FB = {
+			isa = PBXGroup;
+			children = (
+				AACD77EB1905C485008832FB /* FoundationCategoriesKit.xcodeproj */,
+				AACD77B81905C051008832FB /* NavNodeKit */,
+				AACD77CD1905C051008832FB /* NavNodeKitTests */,
+				AACD77B11905C051008832FB /* Frameworks */,
+				AACD77B01905C051008832FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AACD77B01905C051008832FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77AF1905C051008832FB /* NavNodeKit.framework */,
+				AACD77C61905C051008832FB /* NavNodeKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AACD77B11905C051008832FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77B21905C051008832FB /* Cocoa.framework */,
+				AACD77C71905C051008832FB /* XCTest.framework */,
+				AACD77B41905C051008832FB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AACD77B41905C051008832FB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77B51905C051008832FB /* Foundation.framework */,
+				AACD77B61905C051008832FB /* CoreData.framework */,
+				AACD77B71905C051008832FB /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AACD77B81905C051008832FB /* NavNodeKit */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77DD1905C0A5008832FB /* Classes */,
+				AACD77BF1905C051008832FB /* NavNodeKit.h */,
+				AACD77B91905C051008832FB /* Supporting Files */,
+			);
+			path = NavNodeKit;
+			sourceTree = "<group>";
+		};
+		AACD77B91905C051008832FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77BA1905C051008832FB /* NavNodeKit-Info.plist */,
+				AACD77BB1905C051008832FB /* InfoPlist.strings */,
+				AACD77BE1905C051008832FB /* NavNodeKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AACD77CD1905C051008832FB /* NavNodeKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77D31905C051008832FB /* NavNodeKitTests.m */,
+				AACD77CE1905C051008832FB /* Supporting Files */,
+			);
+			path = NavNodeKitTests;
+			sourceTree = "<group>";
+		};
+		AACD77CE1905C051008832FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77CF1905C051008832FB /* NavNodeKitTests-Info.plist */,
+				AACD77D01905C051008832FB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AACD77DD1905C0A5008832FB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77DE1905C0A5008832FB /* NavNode.h */,
+				AACD77DF1905C0A5008832FB /* NavNode.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AACD77EC1905C485008832FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AACD77F11905C485008832FB /* FoundationCategoriesKit.framework */,
+				AACD77F31905C485008832FB /* FoundationCategoriesKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AACD77AC1905C051008832FB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACD77E01905C0A5008832FB /* NavNode.h in Headers */,
+				AACD780B1905C74C008832FB /* NavNodeKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AACD77AE1905C051008832FB /* NavNodeKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AACD77D71905C051008832FB /* Build configuration list for PBXNativeTarget "NavNodeKit" */;
+			buildPhases = (
+				AACD77AA1905C051008832FB /* Sources */,
+				AACD77AB1905C051008832FB /* Frameworks */,
+				AACD77AC1905C051008832FB /* Headers */,
+				AACD77AD1905C051008832FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NavNodeKit;
+			productName = NavNodeKit;
+			productReference = AACD77AF1905C051008832FB /* NavNodeKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AACD77C51905C051008832FB /* NavNodeKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AACD77DA1905C051008832FB /* Build configuration list for PBXNativeTarget "NavNodeKitTests" */;
+			buildPhases = (
+				AACD77C21905C051008832FB /* Sources */,
+				AACD77C31905C051008832FB /* Frameworks */,
+				AACD77C41905C051008832FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AACD77CB1905C051008832FB /* PBXTargetDependency */,
+			);
+			name = NavNodeKitTests;
+			productName = NavNodeKitTests;
+			productReference = AACD77C61905C051008832FB /* NavNodeKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AACD77A61905C051008832FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = voluntary.net;
+				TargetAttributes = {
+					AACD77C51905C051008832FB = {
+						TestTargetID = AACD77AE1905C051008832FB;
+					};
+				};
+			};
+			buildConfigurationList = AACD77A91905C051008832FB /* Build configuration list for PBXProject "NavNodeKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AACD77A51905C051008832FB;
+			productRefGroup = AACD77B01905C051008832FB /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AACD77EC1905C485008832FB /* Products */;
+					ProjectRef = AACD77EB1905C485008832FB /* FoundationCategoriesKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				AACD77AE1905C051008832FB /* NavNodeKit */,
+				AACD77C51905C051008832FB /* NavNodeKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AACD77F11905C485008832FB /* FoundationCategoriesKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FoundationCategoriesKit.framework;
+			remoteRef = AACD77F01905C485008832FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AACD77F31905C485008832FB /* FoundationCategoriesKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FoundationCategoriesKitTests.xctest;
+			remoteRef = AACD77F21905C485008832FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AACD77AD1905C051008832FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACD77BD1905C051008832FB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AACD77C41905C051008832FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACD77D21905C051008832FB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AACD77AA1905C051008832FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACD77E11905C0A5008832FB /* NavNode.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AACD77C21905C051008832FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACD77D41905C051008832FB /* NavNodeKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AACD77CB1905C051008832FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AACD77AE1905C051008832FB /* NavNodeKit */;
+			targetProxy = AACD77CA1905C051008832FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AACD77BB1905C051008832FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AACD77BC1905C051008832FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AACD77D01905C051008832FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AACD77D11905C051008832FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AACD77D51905C051008832FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AACD77D61905C051008832FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AACD77D81905C051008832FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NavNodeKit/NavNodeKit-Prefix.pch";
+				INFOPLIST_FILE = "NavNodeKit/NavNodeKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		AACD77D91905C051008832FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NavNodeKit/NavNodeKit-Prefix.pch";
+				INFOPLIST_FILE = "NavNodeKit/NavNodeKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		AACD77DB1905C051008832FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavNodeKit.framework/Versions/A/NavNodeKit";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NavNodeKit/NavNodeKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NavNodeKitTests/NavNodeKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AACD77DC1905C051008832FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NavNodeKit.framework/Versions/A/NavNodeKit";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NavNodeKit/NavNodeKit-Prefix.pch";
+				INFOPLIST_FILE = "NavNodeKitTests/NavNodeKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AACD77A91905C051008832FB /* Build configuration list for PBXProject "NavNodeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AACD77D51905C051008832FB /* Debug */,
+				AACD77D61905C051008832FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AACD77D71905C051008832FB /* Build configuration list for PBXNativeTarget "NavNodeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AACD77D81905C051008832FB /* Debug */,
+				AACD77D91905C051008832FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AACD77DA1905C051008832FB /* Build configuration list for PBXNativeTarget "NavNodeKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AACD77DB1905C051008832FB /* Debug */,
+				AACD77DC1905C051008832FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AACD77A61905C051008832FB /* Project object */;
+}
