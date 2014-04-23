@@ -25,6 +25,11 @@
 @property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
 @property (assign, nonatomic) BOOL shouldSortChildren;
 
+
+- (NSString *)nodeTitle;
+- (NSString *)nodeSubtitle;
+- (NSString *)nodeNote;
+
 - (NSUInteger)nodeDepth;
 
 // children
@@ -44,12 +49,11 @@
 - (NavNode *)childWithTitle:(NSString *)aTitle;
 - (NSArray *)nodeTitlePath:(NSArray *)pathComponents;
 
-- (NSString *)nodeTitle;
 - (NSImage *)nodeIconForState:(NSString *)aState;
 
 - (BOOL)isRead;
 
-//- (CGFloat)nodeSuggestedWidth;
+- (CGFloat)nodeSuggestedWidth;
 
 - (void)deepFetch;
 - (void)fetch;

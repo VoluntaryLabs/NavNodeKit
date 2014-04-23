@@ -24,6 +24,11 @@
     return self;
 }
 
+- (NSString *)nodeNote
+{
+    return nil;
+}
+
 - (void)deepFetch
 {
     [self fetch];
