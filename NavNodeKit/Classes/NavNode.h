@@ -25,6 +25,8 @@
 @property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
 @property (assign, nonatomic) BOOL shouldSortChildren;
 
+@property (strong, nonatomic) Class childClass;
+
 
 - (NSString *)nodeTitle;
 - (NSString *)nodeSubtitle;
