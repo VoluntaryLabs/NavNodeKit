@@ -138,6 +138,11 @@
     }
 }
 
+- (void)removeFromParent
+{
+    [self.nodeParent removeChild:self];
+}
+
 - (NavNode *)childWithTitle:(NSString *)aTitle
 {
     for (NavNode *child in self.children)

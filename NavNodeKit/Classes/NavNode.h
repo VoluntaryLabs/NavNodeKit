@@ -40,6 +40,8 @@
 - (void)removeChild:(id)aChild;
 - (void)sortChildren;
 
+- (void)removeFromParent;
+
 // inlining
 
 @property (assign, nonatomic) BOOL shouldInlineChildren;
