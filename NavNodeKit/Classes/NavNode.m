@@ -167,7 +167,7 @@
         
         if (node == nil)
         {
-            break;
+            return nil;
         }
         
         [nodes addObject:node];
