@@ -85,6 +85,7 @@
     {
         id child = [[self.childClass alloc] init];
         [self addChild:child];
+        [self postParentChanged];
     }
 }
 
