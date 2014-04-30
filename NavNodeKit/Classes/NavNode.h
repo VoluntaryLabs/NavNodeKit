@@ -37,6 +37,8 @@
 // children
 
 - (void)addChild:(id)aChild;
+- (void)add; 
+
 - (void)removeChild:(id)aChild;
 - (void)sortChildren;
 

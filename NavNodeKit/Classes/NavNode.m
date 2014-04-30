@@ -79,6 +79,15 @@
     }
 }
 
+- (void)add
+{
+    if (self.childClass)
+    {
+        id child = [[self.childClass alloc] init];
+        [self addChild:child];
+    }
+}
+
 - (void)addChild:(id)aChild
 {
     if (![self.children containsObject:aChild])
