@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSView *nodeView;
 @property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
 @property (assign, nonatomic) BOOL shouldSortChildren;
+@property (assign, nonatomic) BOOL shouldUseCountForNodeNote;
 
 @property (strong, nonatomic) Class childClass;
 
@@ -32,6 +33,7 @@
 - (NSString *)nodeSubtitle;
 - (NSString *)nodeNote;
 
+- (NSArray *)nodePathArray;
 - (NSUInteger)nodeDepth;
 
 // children

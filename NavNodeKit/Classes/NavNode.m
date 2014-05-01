@@ -26,6 +26,11 @@
 
 - (NSString *)nodeNote
 {
+    if (self.shouldUseCountForNodeNote && self.children.count)
+    {
+        return [NSString stringWithFormat:@"%i", (int)self.children.count];
+    }
+    
     return nil;
 }
 
@@ -53,6 +58,23 @@
     [self fetch];
     [self postSelfChanged];
 }
+
+- (NSArray *)nodePathArray
+{
+    NSMutableArray *nodePathArray = [NSMutableArray array];
+    NavNode *node = self;
+    
+    while (node)
+    {
+        [nodePathArray addObject:node];
+        node = node.nodeParent;
+    }
+    
+    [nodePathArray reverse];
+    
+    return nodePathArray;
+}
+
 
 - (NSUInteger)nodeDepth
 {
