@@ -101,14 +101,22 @@
     }
 }
 
-- (void)add
+- (id)addChild
 {
     if (self.childClass)
     {
         id child = [[self.childClass alloc] init];
         [self addChild:child];
         [self postParentChanged];
+        return child;
     }
+    
+    return nil;
+}
+
+- (void)add
+{
+    [self addChild];
 }
 
 - (void)addChild:(id)aChild
@@ -127,6 +135,7 @@
                                                            userInfo:info];
         
         [[NSNotificationCenter defaultCenter] postNotification:note];
+        self.isDirty = YES;
     }
     else
     {
@@ -149,6 +158,7 @@
     }
     
     [self.children removeObject:aChild];
+    self.isDirty = YES;
 
     NSNotification *note = [NSNotification notificationWithName:@"NavNodeRemovedChild"
                                                          object:self
@@ -446,5 +456,34 @@
 {
     [self removeFromParent];
 }
+
+- (BOOL)isDirtyRecursive
+{
+    if (self.isDirty)
+    {
+        return YES;
+    }
+    
+    for (NavNode *child in self.children)
+    {
+        if (child.isDirtyRecursive)
+        {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+- (void)setCleanRecursive
+{
+    self.isDirty = NO;
+    
+    for (NavNode *child in self.children)
+    {
+        [child setCleanRecursive];
+    }
+}
+
 
 @end

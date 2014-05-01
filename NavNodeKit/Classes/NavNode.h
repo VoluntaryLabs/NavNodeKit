@@ -25,6 +25,7 @@
 @property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
 @property (assign, nonatomic) BOOL shouldSortChildren;
 @property (assign, nonatomic) BOOL shouldUseCountForNodeNote;
+@property (assign, nonatomic) BOOL isDirty;
 
 @property (strong, nonatomic) Class childClass;
 
@@ -88,5 +89,12 @@
 - (NSArray *)uiActions;
 
 - (NSString *)verifyActionMessage:(NSString *)aString;
+
+- (id)addChild;
+
+// dirty
+
+- (BOOL)isDirtyRecursive;
+- (void)setCleanRecursive;
 
 @end
