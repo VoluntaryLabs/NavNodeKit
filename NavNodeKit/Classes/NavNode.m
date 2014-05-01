@@ -173,6 +173,7 @@
 - (void)removeFromParent
 {
     [self.nodeParent removeChild:self];
+    [self.nodeParent postParentChanged];
 }
 
 - (NavNode *)childWithTitle:(NSString *)aTitle
@@ -437,6 +438,13 @@
 - (NSString *)verifyActionMessage:(NSString *)aString
 {
     return nil;
+}
+
+// default delete
+
+- (void)delete
+{
+    [self removeFromParent];
 }
 
 @end
