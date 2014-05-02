@@ -55,8 +55,14 @@
 
 - (void)refresh
 {
-    [self fetch];
-    [self postSelfChanged];
+    if (self.deepRefreshes)
+    {
+        [self deepFetch];
+    }
+    else
+    {
+        [self fetch];
+    }
 }
 
 - (NSArray *)nodePathArray
@@ -186,10 +192,32 @@
     }
 }
 
+
+
 - (void)removeFromParent
 {
     [self.nodeParent removeChild:self];
-    [self.nodeParent postParentChanged];
+}
+
+- (void)setNodeParent:(NavNode *)nodeParent
+{
+    NavNode *oldNodeParent = _nodeParent;
+    _nodeParent = nodeParent;
+    
+    if (![oldNodeParent isEqualTo:_nodeParent])
+    {
+        [self postParentChanged];
+    }
+    
+    if (nodeParent == nil)
+    {
+        [self.refreshTimer invalidate];
+        self.refreshTimer = nil;
+    }
+    else if (self.refreshInterval > 0)
+    {
+        self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:self.refreshInterval target:self selector:@selector(refresh) userInfo:nil repeats:YES];
+    }
 }
 
 - (NavNode *)childWithTitle:(NSString *)aTitle

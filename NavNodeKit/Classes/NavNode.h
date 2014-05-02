@@ -66,6 +66,12 @@
 
 - (CGFloat)nodeSuggestedWidth;
 
+// updating
+
+@property (assign, nonatomic) BOOL deepRefreshes;
+@property (assign, nonatomic) NSTimeInterval refreshInterval;
+@property (nonatomic, retain) NSTimer *refreshTimer;
+
 - (void)deepFetch;
 - (void)fetch;
 - (void)refresh;
