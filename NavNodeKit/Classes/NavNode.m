@@ -167,6 +167,12 @@
     [[NSNotificationCenter defaultCenter] postNotification:note];
 }
 
+- (void)mergeWithChildren:(NSArray *)newChildren
+{
+    [self.children mergeWith:newChildren];
+    [self setChildren:self.children];
+}
+
 - (void)sortChildren
 {
     if (self.shouldSortChildren)

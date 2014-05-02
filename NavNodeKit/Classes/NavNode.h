@@ -47,6 +47,8 @@
 
 - (void)removeFromParent;
 
+- (void)mergeWithChildren:(NSArray *)newChildren;
+
 // inlining
 
 @property (assign, nonatomic) BOOL shouldInlineChildren;
