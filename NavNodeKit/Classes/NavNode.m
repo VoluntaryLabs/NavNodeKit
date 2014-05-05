@@ -489,6 +489,8 @@
 - (void)delete
 {
     [self removeFromParent];
+    [self postSelfChanged];
+    [self postParentChanged];
 }
 
 - (BOOL)isDirtyRecursive
