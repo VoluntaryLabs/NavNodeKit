@@ -125,7 +125,19 @@
     [self addChild];
 }
 
-- (void)addChild:(id)aChild
+- (BOOL)justAddChild:(id)aChild
+{
+    if (![self.children containsObject:aChild])
+    {
+        [aChild setNodeParent:self];
+        [self.children addObject:aChild];
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)addChild:(id)aChild
 {
     if (![self.children containsObject:aChild])
     {
@@ -142,10 +154,12 @@
         
         [[NSNotificationCenter defaultCenter] postNotification:note];
         self.isDirty = YES;
+        return YES;
     }
     else
     {
         [self sortChildren];
+        return NO;
     }
 }
 
@@ -192,6 +206,16 @@
     }
 }
 
+- (void)sortChildrenWithKey:(NSString *)aKey
+{
+    if (self.shouldSortChildren)
+    {
+        NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:aKey
+                                                                 ascending:YES
+                                                                  selector:@selector(compare:)];
+        [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+    }
+}
 
 
 - (void)removeFromParent
@@ -314,12 +338,21 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NavNodeChanged" object:self];
 }
 
+- (Class)nodeViewClass
+{
+    return nil;
+}
 
 - (NSView *)nodeView
 {
     if (!_nodeView)
     {
-        id viewClass = self.class.firstViewClass;
+        id viewClass = self.nodeViewClass;
+        
+        if (!viewClass)
+        {
+            viewClass = self.class.firstViewClass;
+        }
         
         if (viewClass)
         {

@@ -39,11 +39,12 @@
 
 // children
 
-- (void)addChild:(id)aChild;
+- (BOOL)addChild:(id)aChild;
 - (void)add; 
 
 - (void)removeChild:(id)aChild;
 - (void)sortChildren;
+- (void)sortChildrenWithKey:(NSString *)aKey;
 
 - (void)removeFromParent;
 
