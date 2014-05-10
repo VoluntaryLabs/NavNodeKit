@@ -28,6 +28,8 @@
 @property (assign, nonatomic) BOOL isDirty;
 
 @property (strong, nonatomic) Class childClass;
+@property (strong, nonatomic) NSString *sortChildrenKey;
+@property (assign, nonatomic) BOOL sortAccending;
 
 
 - (NSString *)nodeTitle;
@@ -79,6 +81,7 @@
 
 - (void)postParentChanged;
 - (void)postSelfChanged;
+- (void)postParentChainChanged;
 
 - (id)childWithAddress:(NSString *)address; // hack - move to node subclass
 

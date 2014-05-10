@@ -18,7 +18,7 @@
     self.children = [NSMutableArray array];
     //self.actions  = [NSMutableArray array];
     //[self.actions addObject:@"testAction"];
-    
+    self.sortAccending = YES;
     self.shouldSortChildren = YES;
     
     return self;
@@ -193,13 +193,28 @@
     [self setChildren:self.children];
 }
 
+- (SEL)sortSelector
+{
+    SEL sortSelector = @selector(caseInsensitiveCompare:);
+    
+    if (self.children.count && ![self.children.firstObject respondsToSelector:sortSelector])
+    {
+        sortSelector = @selector(compare:);
+    }
+    
+    return sortSelector;
+}
+
 - (void)sortChildren
 {
-    if (self.shouldSortChildren)
+    if (self.shouldSortChildren && self.children.count)
     {
-        NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle"
-                                                                 ascending:YES
-                                                                  selector:@selector(caseInsensitiveCompare:)];
+        NSString *key = self.sortChildrenKey ? self.sortChildrenKey : @"nodeTitle";
+
+        
+        NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:key
+                                                                 ascending:self.sortAccending
+                                                                  selector:self.sortSelector];
 
         //NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle" ascending:YES];
         [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
@@ -211,7 +226,7 @@
     if (self.shouldSortChildren)
     {
         NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:aKey
-                                                                 ascending:YES
+                                                                 ascending:self.sortAccending
                                                                   selector:@selector(compare:)];
         [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     }
@@ -235,13 +250,48 @@
     
     if (nodeParent == nil)
     {
-        [self.refreshTimer invalidate];
-        self.refreshTimer = nil;
+        [self stopRefreshTimer];
     }
     else if (self.refreshInterval > 0)
     {
-        self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:self.refreshInterval target:self selector:@selector(refresh) userInfo:nil repeats:YES];
+        [self startRefreshTimerIfNeeded];
     }
+}
+
+- (void)dealloc
+{
+    [self stopRefreshTimer];
+}
+
+- (void)setRefreshInterval:(NSTimeInterval)refreshInterval
+{
+    if (_refreshInterval != refreshInterval)
+    {
+        _refreshInterval = refreshInterval;
+        
+        [self stopRefreshTimer];
+        [self startRefreshTimerIfNeeded];
+    }
+}
+
+- (void)startRefreshTimerIfNeeded
+{
+    if (!self.refreshTimer && self.refreshInterval > 0)
+    {
+        [self stopRefreshTimer];
+        
+        self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:self.refreshInterval
+                                                             target:self
+                                                           selector:@selector(refresh)
+                                                           userInfo:nil
+                                                            repeats:YES];
+    }
+}
+
+- (void)stopRefreshTimer
+{
+    [self.refreshTimer invalidate];
+    self.refreshTimer = nil;
 }
 
 - (NavNode *)childWithTitle:(NSString *)aTitle
@@ -322,15 +372,26 @@
     return [self nodeIconForState:@"disabled"];
 }
 
+- (void)postSelfChanged
+{
+    [self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
+    [self justPostSelfChanged];
+}
+
 - (void)postParentChanged
 {
     [self.nodeParent postSelfChanged];
 }
 
-- (void)postSelfChanged
+- (void)postParentChainChanged
 {
-    [self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
-    [self justPostSelfChanged];
+    NavNode *node = self;
+    
+    while (node)
+    {
+        [node postSelfChanged];
+        node = node.nodeParent;
+    }
 }
 
 - (void)justPostSelfChanged
