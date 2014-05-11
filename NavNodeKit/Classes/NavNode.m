@@ -604,6 +604,31 @@
     [self postParentChanged];
 }
 
+// dirty
+
+- (void)notifyChainDirty
+{
+    if (self.nodeParent)
+    {
+        [self.nodeParent notifyChainDirty];
+    }
+}
+
+/*
+- (void)setIsDirty:(BOOL)aBool
+{
+    if (_isDirty != aBool)
+    {
+        _isDirty = aBool;
+        
+        if (_isDirty)
+        {
+            [self notifyChainDirty];
+        }
+    }
+}
+*/
+
 - (BOOL)isDirtyRecursive
 {
     if (self.isDirty)
