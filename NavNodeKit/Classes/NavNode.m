@@ -282,16 +282,33 @@
         
         self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:self.refreshInterval
                                                              target:self
-                                                           selector:@selector(refresh)
+                                                           selector:@selector(refreshTimerEvent)
                                                            userInfo:nil
                                                             repeats:YES];
     }
 }
 
+- (void)refreshTimerEvent
+{
+    NSLog(@"--- %@ refreshTimerEvent ---", NSStringFromClass(self.class));
+    
+    @try
+    {
+        [self refresh];
+    }
+    @catch (NSException * e)
+    {
+        NSLog(@"refresh exception %@", e);
+    }
+}
+
 - (void)stopRefreshTimer
 {
-    [self.refreshTimer invalidate];
-    self.refreshTimer = nil;
+    if (self.refreshTimer)
+    {
+        [self.refreshTimer invalidate];
+        self.refreshTimer = nil;
+    }
 }
 
 - (NavNode *)childWithTitle:(NSString *)aTitle
