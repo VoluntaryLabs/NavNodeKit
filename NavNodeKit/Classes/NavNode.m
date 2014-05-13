@@ -657,5 +657,40 @@
     }
 }
 
+- (BOOL)onFirstRespondingInParentChainSend:(SEL)aSelector
+{
+    if (self.nodeParent)
+    {
+        if ([self.nodeParent respondsToSelector:aSelector])
+        {
+            [self.nodeParent performSelector:aSelector withObject:nil afterDelay:0.0];
+            return YES;
+        }
+        
+        return [self.nodeParent onFirstRespondingInParentChainSend:aSelector];
+    }
+    
+    return NO;
+}
+
+- (id)firstInParentChainOfClass:(Class)aClass
+{
+    if (self.class == aClass)
+    {
+        return self;
+    }
+    
+    if (self.nodeParent)
+    {
+        return [self.nodeParent firstInParentChainOfClass:aClass];
+    }
+    
+    return nil;
+}
+
+- (BOOL)inParentChainHasClass:(Class)aClass
+{
+    return [self firstInParentChainOfClass:aClass] != nil;
+}
 
 @end

@@ -109,4 +109,10 @@
 - (BOOL)isDirtyRecursive;
 - (void)setCleanRecursive;
 
+// chain
+
+- (BOOL)onFirstRespondingInParentChainSend:(SEL)aSelector;
+- (id)firstInParentChainOfClass:(Class)aClass;
+- (BOOL)inParentChainHasClass:(Class)aClass;
+
 @end
