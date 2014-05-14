@@ -30,6 +30,7 @@
 @property (strong, nonatomic) Class childClass;
 @property (strong, nonatomic) NSString *sortChildrenKey;
 @property (assign, nonatomic) BOOL sortAccending;
+@property (assign, nonatomic) BOOL nodeForceDisplayChildren;
 
 
 - (NSString *)nodeTitle;
