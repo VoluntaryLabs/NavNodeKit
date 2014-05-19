@@ -693,4 +693,23 @@
     return [self firstInParentChainOfClass:aClass] != nil;
 }
 
+- (NSArray *)childrenWith:(SEL)selector equalTo:anObject
+{
+    NSMutableArray *matches = [NSMutableArray array];
+    
+    for (NavNode *child in self.children.copy)
+    {
+        [matches addObjectsFromArray:[child childrenWith:selector equalTo:anObject]];
+
+        if ([child respondsToSelector:selector])
+        {
+            id value = [child performSelector:selector];
+            [matches addObject:child];
+        }
+        
+    }
+    
+    return matches;
+}
+
 @end

@@ -115,5 +115,6 @@
 - (BOOL)onFirstRespondingInParentChainSend:(SEL)aSelector;
 - (id)firstInParentChainOfClass:(Class)aClass;
 - (BOOL)inParentChainHasClass:(Class)aClass;
+- (NSArray *)childrenWith:(SEL)selector equalTo:anObject;
 
 @end
