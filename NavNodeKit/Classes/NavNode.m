@@ -416,11 +416,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NavNodeChanged" object:self];
 }
 
-- (Class)nodeViewClass
-{
-    return nil;
-}
-
 - (NSView *)nodeView
 {
     if (!_nodeView)
@@ -704,12 +699,26 @@
         if ([child respondsToSelector:selector])
         {
             id value = [child performSelector:selector];
-            [matches addObject:child];
+            
+            if ([value isEqual:anObject])
+            {
+                [matches addObject:child];
+            }
         }
         
     }
     
     return matches;
+}
+
+- (NavMirror *)navMirror
+{
+    if (!_navMirror)
+    {
+        _navMirror = [[NavMirror alloc] init];
+    }
+    
+    return _navMirror;
 }
 
 @end

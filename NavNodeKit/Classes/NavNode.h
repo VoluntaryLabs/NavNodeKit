@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <FoundationCategoriesKit/FoundationCategoriesKit.h>
+#import "NavMirror.h"
 
 @class NavNode;
 
 @protocol NodeViewProtocol <NSObject>
 - (void)setNode:(id)aNode;
+- (BOOL)handlesNodeActions; // optional
 @end
 
 
@@ -22,6 +24,8 @@
 @property (strong, nonatomic) NSMutableArray *children;
 //@property (strong, nonatomic) NSMutableArray *actions;
 @property (strong, nonatomic) NSView *nodeView;
+@property (assign, nonatomic) Class nodeViewClass;
+
 @property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
 @property (assign, nonatomic) BOOL shouldSortChildren;
 @property (assign, nonatomic) BOOL shouldUseCountForNodeNote;
@@ -31,6 +35,9 @@
 @property (strong, nonatomic) NSString *sortChildrenKey;
 @property (assign, nonatomic) BOOL sortAccending;
 @property (assign, nonatomic) BOOL nodeForceDisplayChildren;
+
+@property (strong, nonatomic) NavMirror *navMirror;
+
 
 
 - (NSString *)nodeTitle;
@@ -116,5 +123,6 @@
 - (id)firstInParentChainOfClass:(Class)aClass;
 - (BOOL)inParentChainHasClass:(Class)aClass;
 - (NSArray *)childrenWith:(SEL)selector equalTo:anObject;
+
 
 @end
