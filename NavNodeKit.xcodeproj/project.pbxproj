@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA09C81F192D566700317130 /* NavInfoNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AA09C81D192D566700317130 /* NavInfoNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA09C820192D566700317130 /* NavInfoNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AA09C81E192D566700317130 /* NavInfoNode.m */; };
 		AA605AE0192A9CF600798BCA /* NavMirror.h in Headers */ = {isa = PBXBuildFile; fileRef = AA605ADE192A9CF600798BCA /* NavMirror.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA605AE1192A9CF600798BCA /* NavMirror.m in Sources */ = {isa = PBXBuildFile; fileRef = AA605ADF192A9CF600798BCA /* NavMirror.m */; };
 		AA605AE6192A9D2300798BCA /* NavSlot.h in Headers */ = {isa = PBXBuildFile; fileRef = AA605AE4192A9D2300798BCA /* NavSlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA09C81D192D566700317130 /* NavInfoNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavInfoNode.h; sourceTree = "<group>"; };
+		AA09C81E192D566700317130 /* NavInfoNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavInfoNode.m; sourceTree = "<group>"; };
 		AA605ADE192A9CF600798BCA /* NavMirror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavMirror.h; sourceTree = "<group>"; };
 		AA605ADF192A9CF600798BCA /* NavMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavMirror.m; sourceTree = "<group>"; };
 		AA605AE4192A9D2300798BCA /* NavSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavSlot.h; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 		AACD77DD1905C0A5008832FB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AA09C81D192D566700317130 /* NavInfoNode.h */,
+				AA09C81E192D566700317130 /* NavInfoNode.m */,
 				AACD77DE1905C0A5008832FB /* NavNode.h */,
 				AACD77DF1905C0A5008832FB /* NavNode.m */,
 				AA605ADE192A9CF600798BCA /* NavMirror.h */,
@@ -219,6 +225,7 @@
 				AA605AEA192AA19700798BCA /* NavActionSlot.h in Headers */,
 				AA605AE6192A9D2300798BCA /* NavSlot.h in Headers */,
 				AA605AEE192AB61400798BCA /* NavDataSlot.h in Headers */,
+				AA09C81F192D566700317130 /* NavInfoNode.h in Headers */,
 				AACD780B1905C74C008832FB /* NavNodeKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +353,7 @@
 				AA605AEB192AA19700798BCA /* NavActionSlot.m in Sources */,
 				AA605AE7192A9D2300798BCA /* NavSlot.m in Sources */,
 				AACD77E11905C0A5008832FB /* NavNode.m in Sources */,
+				AA09C820192D566700317130 /* NavInfoNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

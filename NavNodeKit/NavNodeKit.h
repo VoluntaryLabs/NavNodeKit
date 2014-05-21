@@ -9,3 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #import "NavNode.h"
+#import "NavInfoNode.h"
+
+// mirror
+
+#import "NavMirror.h"
+#import "NavSlot.h"
+#import "NavDataSlot.h"
+#import "NavActionSlot.h"
