@@ -91,7 +91,8 @@
     
     if (!viewClass)
     {
-        viewClass = NSClassFromString(self.className);
+        NSString *viewClassName = [self.className stringByAppendingString:@"View"];
+        viewClass = NSClassFromString(viewClassName);
     }
     
     return viewClass;
@@ -105,9 +106,9 @@
         
         if (viewClass)
         {
-            _slotView = [[viewClass alloc] init];
+            _slotView = [[viewClass alloc] initWithFrame:NSMakeRect(0, 0, 300, 30)];
             //[_slotView setNavSlot:self];
-            [_slotView performSelector:@selector(setNavSlot:) withObject:self];
+            [_slotView setSlot:self];
         }
     }
     

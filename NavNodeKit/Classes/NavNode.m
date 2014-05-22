@@ -716,6 +716,7 @@
     if (!_navMirror)
     {
         _navMirror = [[NavMirror alloc] init];
+        [_navMirror setNode:self];
     }
     
     return _navMirror;

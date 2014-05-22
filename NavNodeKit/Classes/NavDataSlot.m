@@ -64,7 +64,7 @@
 
 // nodeValue
 
-- (id)nodeValue
+- (id)value
 {
     SEL getterSelector = NSSelectorFromString(self.name);
     NavNode *node = self.mirror.node;
@@ -81,7 +81,7 @@
     return nil;
 }
 
-- (void)setNodeValue:(id)aValue
+- (void)setValue:(id)aValue
 {
     NSString *setterName = [NSString stringWithFormat:@"set%@:", self.name.capitalisedFirstCharacterString];
     SEL setterSelector = NSSelectorFromString(setterName);

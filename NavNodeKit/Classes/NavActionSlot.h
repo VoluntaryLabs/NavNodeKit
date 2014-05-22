@@ -15,4 +15,7 @@
 - (void)setIsActive:(BOOL)aBool;
 - (BOOL)isActive;
 
+- (void)sendAction;
+
+
 @end

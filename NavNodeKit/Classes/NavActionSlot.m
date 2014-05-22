@@ -7,6 +7,8 @@
 //
 
 #import "NavActionSlot.h"
+#import "NavMirror.h"
+#import "NavNode.h"
 
 @implementation NavActionSlot
 
@@ -36,6 +38,14 @@
     }
     
     return NO;
+}
+
+- (void)sendAction
+{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self.mirror.node performSelector:NSSelectorFromString(self.name)];
+#pragma clang diagnostic pop
 }
 
 @end

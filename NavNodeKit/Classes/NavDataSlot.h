@@ -27,7 +27,7 @@
 
 // nodeValue
 
-- (id)nodeValue;
-- (void)setNodeValue:(id)aValue;
+- (id)value;
+- (void)setValue:(id)aValue;
 
 @end

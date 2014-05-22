@@ -94,7 +94,7 @@
         [slot setName:aName];
         [self.slots addObject:slot];
     }
-    else if ([slot isKindOfClass:NavDataSlot.class])
+    else if (![slot isKindOfClass:NavDataSlot.class])
     {
         [NSException raise:@"wrong slot type" format:nil];
     }
@@ -113,7 +113,7 @@
         [slot setName:aName];
         [self.slots addObject:slot];
     }
-    else if ([slot isKindOfClass:NavActionSlot.class])
+    else if (![slot isKindOfClass:NavActionSlot.class])
     {
         [NSException raise:@"wrong slot type" format:nil];
     }

@@ -10,17 +10,17 @@
 
 @class NavMirror;
 
-@protocol NavSlotView <NSObject>
-
-- (void)setNavSlot:(id)slot;
-
+@protocol NavSlotViewProtocol <NSObject>
+- (void)setSlot:(id)slot;
+- (void)syncFromSlot;
+- (void)syncToSlot;
 @end
 
 @interface NavSlot : NSObject
 
 @property (assign, nonatomic) NavMirror *mirror;
 @property (strong, nonatomic) NSMutableDictionary *attributes;
-@property (strong, nonatomic) NSView *slotView;
+@property (strong, nonatomic) NSView <NavSlotViewProtocol> *slotView;
 
 // key
 
