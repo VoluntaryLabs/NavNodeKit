@@ -25,6 +25,11 @@
 - (void)setUneditedValue:(NSString *)aString;
 - (NSString *)uneditedValue;
 
+// valueSuffix
+
+- (void)setValueSuffix:(NSString *)aString;
+- (NSString *)valueSuffix;
+
 // nodeValue
 
 - (id)value;

@@ -62,6 +62,19 @@
     return [self.attributes objectForKey:@"uneditedValue"];
 }
 
+// valueSuffix
+
+- (void)setValueSuffix:(NSString *)aString
+{
+    [self.attributes setObject:aString forKey:@"valueSuffix"];
+}
+
+
+- (NSString *)valueSuffix
+{
+    return [self.attributes objectForKey:@"valueSuffix"];
+}
+
 // nodeValue
 
 - (id)value
@@ -83,7 +96,9 @@
 
 - (void)setValue:(id)aValue
 {
-    NSString *setterName = [NSString stringWithFormat:@"set%@:", self.name.capitalisedFirstCharacterString];
+    NSString *setterName = [NSString stringWithFormat:@"set%@:",
+                            self.name.capitalisedFirstCharacterString];
+    
     SEL setterSelector = NSSelectorFromString(setterName);
     NavNode *node = self.mirror.node;
     
