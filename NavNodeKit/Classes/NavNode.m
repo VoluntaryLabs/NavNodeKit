@@ -698,7 +698,10 @@
 
         if ([child respondsToSelector:selector])
         {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             id value = [child performSelector:selector];
+#pragma clang diagnostic pop
             
             if ([value isEqual:anObject])
             {

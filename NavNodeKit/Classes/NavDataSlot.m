@@ -84,7 +84,10 @@
     
     if ([node respondsToSelector:getterSelector])
     {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         return [node performSelector:getterSelector];
+#pragma clang diagnostic pop
     }
     else
     {
@@ -104,7 +107,10 @@
     
     if ([node respondsToSelector:setterSelector])
     {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         [node performSelector:setterSelector withObject:aValue];
+#pragma clang diagnostic pop
         
         if ([node respondsToSelector:@selector(updatedSlot:)])
         {
