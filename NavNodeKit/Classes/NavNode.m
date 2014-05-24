@@ -722,4 +722,9 @@
     return _navMirror;
 }
 
+- (void)updatedSlot:(NavSlot *)aNavSlot
+{
+    
+}
+
 @end

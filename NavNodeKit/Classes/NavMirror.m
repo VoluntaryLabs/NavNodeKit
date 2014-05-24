@@ -133,4 +133,23 @@
     return slot;
 }
 
+
+- (BOOL)dataSlotsAreFilled
+{
+    for (NavDataSlot *slot in self.dataSlots)
+    {
+        if (slot.value == nil)
+        {
+            return NO;
+        }
+        
+        if ([slot.value isEqualToString:@""])
+        {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 @end

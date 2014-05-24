@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FoundationCategoriesKit/FoundationCategoriesKit.h>
 #import "NavMirror.h"
+#import "NavSlot.h"
 
 @class NavNode;
 
@@ -124,5 +125,6 @@
 - (BOOL)inParentChainHasClass:(Class)aClass;
 - (NSArray *)childrenWith:(SEL)selector equalTo:anObject;
 
+- (void)updatedSlot:(NavSlot *)aNavSlot;
 
 @end

@@ -105,6 +105,11 @@
     if ([node respondsToSelector:setterSelector])
     {
         [node performSelector:setterSelector withObject:aValue];
+        
+        if ([node respondsToSelector:@selector(updatedSlot:)])
+        {
+            [node updatedSlot:self];
+        }
     }
     else
     {

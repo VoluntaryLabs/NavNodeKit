@@ -42,4 +42,6 @@
 - (NavDataSlot *)newDataSlotWithName:(NSString *)aName;
 - (NavActionSlot *)newActionSlotWithName:(NSString *)aName;
 
+- (BOOL)dataSlotsAreFilled;
+
 @end
