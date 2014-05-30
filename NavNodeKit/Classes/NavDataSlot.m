@@ -16,7 +16,7 @@
 
 - (void)setIsPersisted:(BOOL)aBool
 {
-    [self.attributes setObject:[NSNumber numberWithBool:aBool] forKey:@"isPersisted"];
+    [self setAttributeObject:[NSNumber numberWithBool:aBool] forKey:@"isPersisted"];
 }
 
 - (BOOL)isPersisted
@@ -35,7 +35,7 @@
 
 - (void)setIsEditable:(BOOL)aBool
 {
-    [self.attributes setObject:[NSNumber numberWithBool:aBool] forKey:@"isEditable"];
+    [self setAttributeObject:[NSNumber numberWithBool:aBool] forKey:@"isEditable"];
 }
 
 - (BOOL)isEditable
@@ -54,7 +54,7 @@
 
 - (void)setUneditedValue:(NSString *)aString
 {
-    [self.attributes setObject:aString forKey:@"uneditedValue"];
+    [self setAttributeObject:aString forKey:@"uneditedValue"];
 }
 
 - (NSString *)uneditedValue
@@ -66,7 +66,7 @@
 
 - (void)setValueSuffix:(NSString *)aString
 {
-    [self.attributes setObject:aString forKey:@"valueSuffix"];
+    [self setAttributeObject:aString forKey:@"valueSuffix"];
 }
 
 
@@ -127,7 +127,7 @@
 
 - (void)setType:(NSString *)aString
 {
-    [self.attributes setObject:aString forKey:@"type"];
+    [self setAttributeObject:aString forKey:@"type"];
 }
 
 - (NSString *)type

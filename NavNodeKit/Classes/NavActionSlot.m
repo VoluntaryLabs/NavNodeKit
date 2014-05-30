@@ -25,7 +25,7 @@
 
 - (void)setIsActive:(BOOL)aBool
 {
-    [self.attributes setObject:[NSNumber numberWithBool:aBool] forKey:@"isActive"];
+    [self setAttributeObject:[NSNumber numberWithBool:aBool] forKey:@"isActive"];
 }
 
 - (BOOL)isActive

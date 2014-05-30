@@ -22,6 +22,8 @@
 @property (strong, nonatomic) NSMutableDictionary *attributes;
 @property (strong, nonatomic) NSView <NavSlotViewProtocol> *slotView;
 
+- (void)setAttributeObject:(id)newValue forKey:(NSString *)key;
+
 // key
 
 - (void)setName:(NSString *)aName;

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 voluntary.net. All rights reserved.
 //
 
+#import "NavNode.h"
 #import "NavSlot.h"
 #import "NavMirror.h"
 
@@ -26,7 +27,7 @@
 
 - (void)setName:(NSString *)aName
 {
-    [self.attributes setObject:aName forKey:@"name"];
+    [self setAttributeObject:aName forKey:@"name"];
 }
 
 - (NSString *)name
@@ -34,11 +35,22 @@
     return [self.attributes objectForKey:@"name"];
 }
 
+- (void)setAttributeObject:(id)newValue forKey:(NSString *)key
+{
+    id oldValue = [self.attributes objectForKey:key];
+    
+    if (![oldValue isEqual:newValue])
+    {
+        [self.attributes setObject:newValue forKey:key];
+        [self.mirror.node postSelfChanged];
+    }
+}
+
 // isVisible
 
 - (void)setIsVisible:(BOOL)aBool
 {
-    [self.attributes setObject:[NSNumber numberWithBool:aBool] forKey:@"isVisible"];
+    [self setAttributeObject:[NSNumber numberWithBool:aBool] forKey:@"isVisible"];
 }
 
 - (BOOL)isVisible
@@ -57,7 +69,7 @@
 
 - (void)setVisibleName:(NSString *)aString
 {
-    [self.attributes setObject:aString forKey:@"visibleName"];
+    [self setAttributeObject:aString forKey:@"visibleName"];
 }
 
 - (NSString *)visibleName
@@ -69,7 +81,7 @@
 
 - (void)setViewClassName:(NSString *)aString
 {
-    [self.attributes setObject:aString forKey:@"viewClassName"];
+    [self setAttributeObject:aString forKey:@"viewClassName"];
 }
 
 - (NSString *)viewClassName
