@@ -290,7 +290,7 @@
 
 - (void)refreshTimerEvent
 {
-    NSLog(@"--- %@ refreshTimerEvent ---", NSStringFromClass(self.class));
+    //NSLog(@"--- %@ refreshTimerEvent ---", NSStringFromClass(self.class));
     
     @try
     {
