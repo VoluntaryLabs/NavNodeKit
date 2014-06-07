@@ -24,8 +24,10 @@
 
 // dict
 
+/*
 - (NSDictionary *)nodeDict;
 - (void)setNodeDict:(NSDictionary *)dict;
+*/
 
 // slots
 
@@ -43,5 +45,10 @@
 - (NavActionSlot *)newActionSlotWithName:(NSString *)aName;
 
 - (BOOL)dataSlotsAreFilled;
+
+// persistence
+
+- (NSDictionary *)persistentDict;
+- (void)setPersistentDict:(NSDictionary *)aDict;
 
 @end

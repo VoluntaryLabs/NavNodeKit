@@ -152,4 +152,33 @@
     return YES;
 }
 
+// persistence
+
+- (NSDictionary *)persistentDict
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    for (NavDataSlot *slot in self.dataSlots)
+    {
+        if (slot.value != nil)
+        {
+            [dict setObject:slot.value forKey:slot.name];
+        }
+    }
+    
+    return dict;
+}
+
+- (void)setPersistentDict:(NSDictionary *)aDict
+{
+    for (NavDataSlot *slot in self.dataSlots)
+    {
+        if (slot.value != nil)
+        {
+            id value = [aDict objectForKey:slot.name];
+            [slot setValue:value];
+        }
+    }
+}
+
 @end
