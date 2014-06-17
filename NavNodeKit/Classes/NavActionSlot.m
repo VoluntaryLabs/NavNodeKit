@@ -42,10 +42,24 @@
 
 - (void)sendAction
 {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [self.mirror.node performSelector:NSSelectorFromString(self.name)];
-#pragma clang diagnostic pop
+    SEL selector = NSSelectorFromString(self.name);
+    id node      = self.mirror.node;
+    id nodeView  = self.mirror.node.nodeView;
+    
+    if ([node respondsToSelector:selector])
+    {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [node performSelector:selector];
+        #pragma clang diagnostic pop
+    }
+    else if ([nodeView respondsToSelector:selector])
+    {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [nodeView performSelector:selector];
+        #pragma clang diagnostic pop
+    }
 }
 
 @end
