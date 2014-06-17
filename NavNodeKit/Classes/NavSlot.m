@@ -42,6 +42,7 @@
     if (![oldValue isEqual:newValue])
     {
         [self.attributes setObject:newValue forKey:key];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"changedSlotAttribute" object:self];
         [self.mirror.node postSelfChanged];
     }
 }
