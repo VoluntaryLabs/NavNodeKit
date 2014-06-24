@@ -15,7 +15,7 @@
 - (void)setIsActive:(BOOL)aBool;
 - (BOOL)isActive;
 
+- (SEL)actionSelector;
 - (void)sendAction;
-
 
 @end

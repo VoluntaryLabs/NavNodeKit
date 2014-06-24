@@ -20,6 +20,7 @@
 @interface NavMirror : NSObject
 
 @property (assign, nonatomic) NavNode *node;
+@property (strong, nonatomic) NSView *mirrorView;
 @property (strong, nonatomic) NSMutableArray *slots;
 
 // dict

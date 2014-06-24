@@ -40,8 +40,20 @@
     return NO;
 }
 
+- (SEL)actionSelector
+{
+    return NSSelectorFromString(self.name);
+}
+
 - (void)sendAction
 {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:self forKey:@"NavActionSlot"];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SentNavAction"
+                                                        object:self.mirror.node
+                                                      userInfo:dict];
+    
     SEL selector = NSSelectorFromString(self.name);
     id node      = self.mirror.node;
     id nodeView  = self.mirror.node.nodeView;
@@ -60,6 +72,8 @@
         [nodeView performSelector:selector];
         #pragma clang diagnostic pop
     }
+    
+    [self.mirror.node postSelfChanged];
 }
 
 @end
