@@ -43,6 +43,7 @@
 
 - (NSString *)nodeTitle;
 - (NSString *)nodeSubtitle;
+- (NSString *)nodeSubtitleDetailed;
 - (NSString *)nodeNote;
 
 - (NSArray *)nodePathArray;

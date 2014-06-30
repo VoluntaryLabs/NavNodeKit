@@ -15,6 +15,13 @@
 - (void)setIsActive:(BOOL)aBool;
 - (BOOL)isActive;
 
+// verify message
+
+- (void)setVerifyMessage:(NSString *)aString;
+- (NSString *)verifyMessage;
+
+// send
+
 - (SEL)actionSelector;
 - (void)sendAction;
 

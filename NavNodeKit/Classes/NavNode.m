@@ -363,6 +363,12 @@
     return nil;
 }
 
+- (NSString *)nodeSubtitleDetailed
+{
+    return nil;
+}
+
+
 // --- icon ----------------------
 
 - (NSImage *)nodeIconForState:(NSString *)aState

@@ -40,6 +40,20 @@
     return NO;
 }
 
+// alert
+
+- (void)setVerifyMessage:(NSString *)aString
+{
+    [self setAttributeObject:aString forKey:@"verifyMessage"];
+}
+
+- (NSString *)verifyMessage
+{
+    return [self.attributes objectForKey:@"verifyMessage"];
+}
+
+// sending action
+
 - (SEL)actionSelector
 {
     return NSSelectorFromString(self.name);
