@@ -94,6 +94,7 @@
 - (void)postParentChainChanged;
 
 - (id)childWithAddress:(NSString *)address; // hack - move to node subclass
+- (id)firstChildWithKindOfClass:(Class)aClass;
 
 // --- search ---
 

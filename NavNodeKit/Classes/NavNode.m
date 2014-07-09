@@ -512,6 +512,19 @@
     return nil;
 }
 
+- (id)firstChildWithKindOfClass:(Class)aClass
+{
+    for (id child in self.children)
+    {
+        if ([child isKindOfClass:aClass])
+        {
+            return child;
+        }
+    }
+    
+    return nil;
+}
+
 // ----------------------
 
 - (NSArray *)inlinedChildren
