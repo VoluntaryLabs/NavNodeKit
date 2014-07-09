@@ -158,7 +158,7 @@
     }
     else
     {
-        [self sortChildren];
+        //[self sortChildren];
         return NO;
     }
 }
@@ -398,7 +398,6 @@
 - (void)postSelfChanged
 {
     [self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
-    [self justPostSelfChanged];
 }
 
 - (void)postParentChanged
@@ -408,6 +407,10 @@
 
 - (void)postParentChainChanged
 {
+    [self postSelfChanged];
+    [self.nodeParent postParentChainChanged];
+    
+    /*
     NavNode *node = self;
     
     while (node)
@@ -415,6 +418,7 @@
         [node postSelfChanged];
         node = node.nodeParent;
     }
+    */
 }
 
 - (void)justPostSelfChanged
