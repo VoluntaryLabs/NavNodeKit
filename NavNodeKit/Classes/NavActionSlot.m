@@ -59,15 +59,23 @@
     return NSSelectorFromString(self.name);
 }
 
-- (void)sendAction
+- (void)postSendNotification
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:self forKey:@"NavActionSlot"];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SentNavAction"
-                                                        object:self.mirror.node
-                                                      userInfo:dict];
+    id node = self.mirror.node;
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
+    /*
+    [center postNotificationName:@"SentNavAction"
+                          object:node
+                        userInfo:dict];
+     */
+}
+
+- (void)sendAction
+{
     SEL selector = NSSelectorFromString(self.name);
     id node      = self.mirror.node;
     id nodeView  = self.mirror.node.nodeView;
@@ -88,6 +96,9 @@
     }
     
     [self.mirror.node postSelfChanged];
+    
+    [self performSelector:@selector(postSendNotification) withObject:nil afterDelay:0.0];
+    //[self postSendNotification];
 }
 
 @end
