@@ -45,6 +45,9 @@
 - (NSString *)viewClassName;
 - (Class)viewClass;
 
+// notifications
+
+- (void)postChangeNotification;
 
 
 @end

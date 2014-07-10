@@ -35,6 +35,18 @@
     return [self.attributes objectForKey:@"name"];
 }
 
+- (void)postChangeNotification
+{
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    [userInfo setObject:self forKey:@"slot"];
+    
+    NSNotification *changeNotification = [NSNotification notificationWithName:@"changedSlotAttribute"
+                                         object:self.mirror.node
+                                       userInfo:userInfo];
+    
+    [[NSNotificationCenter defaultCenter] postNotification:changeNotification];
+}
+
 - (void)setAttributeObject:(id)newValue forKey:(NSString *)key
 {
     id oldValue = [self.attributes objectForKey:key];
@@ -42,7 +54,7 @@
     if (![oldValue isEqual:newValue])
     {
         [self.attributes setObject:newValue forKey:key];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"changedSlotAttribute" object:self];
+        [self postChangeNotification];
         [self.mirror.node postSelfChanged];
     }
 }

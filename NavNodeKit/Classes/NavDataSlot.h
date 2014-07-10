@@ -34,5 +34,6 @@
 
 - (id)value;
 - (void)setValue:(id)aValue;
+- (BOOL)hasEmptyValue;
 
 @end

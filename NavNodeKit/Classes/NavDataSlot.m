@@ -112,6 +112,8 @@
         [node performSelector:setterSelector withObject:aValue];
 #pragma clang diagnostic pop
         
+        //[self postValueChangeNotification];
+        
         if ([node respondsToSelector:@selector(updatedSlot:)])
         {
             [node updatedSlot:self];
@@ -121,6 +123,34 @@
     {
         [NSException raise:@"no such node setter" format:nil];
     }
+}
+
+- (BOOL)hasEmptyValue
+{
+    id v = self.value;
+    
+    if (v == nil)
+    {
+        return YES;
+    }
+    else if ([v isKindOfClass:NSString.class])
+    {
+        if ([v isEqualToString:@""])
+        {
+            return YES;
+        }
+        
+        if ([v isEqualToString:self.uneditedValue])
+        {
+            return YES;
+        }
+    }
+    else if ([v isEqual:self.uneditedValue])
+    {
+        return YES;
+    }
+    
+    return NO;
 }
 
 // type
@@ -134,5 +164,21 @@
 {
     return [self.attributes objectForKey:@"type"];
 }
+
+/*
+- (void)postValueChangeNotification
+{
+    [super postChangeNotification];
+    
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    [userInfo setObject:self forKey:@"slot"];
+    
+    NSNotification *changeNotification = [NSNotification notificationWithName:@"changedDataSlotValue"
+                                                                       object:self.mirror.node
+                                                                     userInfo:userInfo];
+    
+    [[NSNotificationCenter defaultCenter] postNotification:changeNotification];
+}
+*/
 
 @end
