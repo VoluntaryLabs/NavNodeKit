@@ -61,17 +61,16 @@
 
 - (void)postSendNotification
 {
+    
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:self forKey:@"NavActionSlot"];
     
     id node = self.mirror.node;
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
-    /*
     [center postNotificationName:@"SentNavAction"
                           object:node
                         userInfo:dict];
-     */
 }
 
 - (void)sendAction
