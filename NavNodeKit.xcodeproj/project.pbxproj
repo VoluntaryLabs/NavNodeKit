@@ -112,9 +112,9 @@
 			children = (
 				AACD77EB1905C485008832FB /* FoundationCategoriesKit.xcodeproj */,
 				AACD77B81905C051008832FB /* NavNodeKit */,
-				AACD77CD1905C051008832FB /* NavNodeKitTests */,
 				AACD77B11905C051008832FB /* Frameworks */,
 				AACD77B01905C051008832FB /* Products */,
+				AACD77CD1905C051008832FB /* NavNodeKitTests */,
 			);
 			sourceTree = "<group>";
 		};

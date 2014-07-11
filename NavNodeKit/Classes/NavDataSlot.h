@@ -36,4 +36,9 @@
 - (void)setValue:(id)aValue;
 - (BOOL)hasEmptyValue;
 
+// lineCount
+
+- (void)setLineCount:(NSNumber *)aNumber;
+- (NSNumber *)lineCount;
+
 @end

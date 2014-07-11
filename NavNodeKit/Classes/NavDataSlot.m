@@ -181,4 +181,21 @@
 }
 */
 
+// lineCount
+
+- (void)setLineCount:(NSNumber *)aNumber
+{
+    if (![aNumber isKindOfClass:NSNumber.class])
+    {
+        [NSException raise:@"dataSlot lineCount attribute must be an NSNumber" format:nil];
+    }
+    
+    [self setAttributeObject:aNumber forKey:@"lineCount"];
+}
+
+- (NSNumber *)lineCount
+{
+    return [self.attributes objectForKey:@"lineCount"];
+}
+
 @end
