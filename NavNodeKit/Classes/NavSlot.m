@@ -56,6 +56,11 @@
         [self.attributes setObject:newValue forKey:key];
         [self postChangeNotification];
         [self.mirror.node postSelfChanged];
+        
+        if (_slotView)
+        {
+            [_slotView syncFromSlot];
+        }
     }
 }
 
