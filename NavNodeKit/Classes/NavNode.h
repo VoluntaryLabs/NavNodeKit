@@ -36,6 +36,7 @@
 @property (strong, nonatomic) NSString *sortChildrenKey;
 @property (assign, nonatomic) BOOL sortAccending;
 @property (assign, nonatomic) BOOL nodeForceDisplayChildren;
+@property (assign, nonatomic) CGFloat nodeSuggestedWidth;
 
 @property (strong, nonatomic) NavMirror *navMirror;
 
@@ -47,6 +48,7 @@
 - (NSString *)nodeNote;
 
 - (NSArray *)nodePathArray;
+- (NSArray *)pathOfClass:(Class)aClass;
 - (NSUInteger)nodeDepth;
 
 // children
@@ -76,8 +78,6 @@
 - (NSImage *)nodeIconForState:(NSString *)aState;
 
 - (BOOL)isRead;
-
-- (CGFloat)nodeSuggestedWidth;
 
 // updating
 

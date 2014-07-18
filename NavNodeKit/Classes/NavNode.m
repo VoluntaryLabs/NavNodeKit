@@ -20,6 +20,7 @@
     //[self.actions addObject:@"testAction"];
     self.sortAccending = YES;
     self.shouldSortChildren = YES;
+    self.nodeSuggestedWidth = 300;
     
     return self;
 }
@@ -79,6 +80,23 @@
     [nodePathArray reverse];
     
     return nodePathArray;
+}
+
+- (NSArray *)pathOfClass:(Class)aClass
+{
+    // returns all nodes of a given class in the path
+    
+    NSMutableArray *path = [NSMutableArray array];
+    
+    for (NavNode *node in self.nodePathArray)
+    {
+        if ([node isKindOfClass:aClass])
+        {
+            [path addObject:node];
+        }
+    }
+    
+    return path;
 }
 
 
@@ -569,11 +587,6 @@
     }
     
     return NO;
-}
-
-- (CGFloat)nodeSuggestedWidth
-{
-    return 300;
 }
 
 - (CGFloat)nodeSuggestedRowHeight
