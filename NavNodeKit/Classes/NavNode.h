@@ -37,6 +37,7 @@
 @property (assign, nonatomic) BOOL sortAccending;
 @property (assign, nonatomic) BOOL nodeForceDisplayChildren;
 @property (assign, nonatomic) CGFloat nodeSuggestedWidth;
+@property (assign, nonatomic) CGFloat nodeMinWidth;
 
 @property (strong, nonatomic) NavMirror *navMirror;
 
