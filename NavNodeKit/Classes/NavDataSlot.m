@@ -153,6 +153,40 @@
     return NO;
 }
 
+- (NSNumber *)numberValue
+{
+    if ([self.value isKindOfClass:NSNumber.class])
+    {
+        return self.value;
+    }
+
+    if ([self.value isKindOfClass:NSString.class])
+    {
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *outNumber = [f numberFromString:self.value];
+        return outNumber;
+    }
+    
+    return nil;
+}
+
+- (NSString *)stringValue
+{
+    if ([self.value isKindOfClass:NSString.class])
+    {
+        return self.value;
+    }
+    
+    //if ([self.value isKindOfClass:NSNumber.class])
+    if ([self.value respondsToSelector:@selector(stringValue)])
+    {
+        return [self.value stringValue];
+    }
+    
+    return nil;
+}
+
 // type
 
 - (void)setType:(NSString *)aString
@@ -197,5 +231,65 @@
 {
     return [self.attributes objectForKey:@"lineCount"];
 }
+
+// format
+
+- (void)setFormatterClassName:(NSString *)aString
+{
+    [self setAttributeObject:aString forKey:@"formatterClassName"];
+}
+
+- (NSString *)formatterClassName
+{
+    return [self.attributes objectForKey:@"formatterClassName"];
+}
+
+- (NSFormatter *)formatter
+{
+    // should we cache this?
+    
+    Class formatterClass = NSClassFromString(self.formatterClassName);
+    
+    if (!formatterClass)
+    {
+        return nil;
+    }
+    
+    return [[formatterClass alloc] init];
+}
+
+// sync
+
+- (void)setSyncsWhileEditing:(BOOL)aBool
+{
+    [self setAttributeObject:[NSNumber numberWithBool:aBool] forKey:@"syncsWhileEditing"];
+}
+
+- (BOOL)syncsWhileEditing
+{
+    return YES;
+}
+
+// valid
+
+- (NSString *)validationMethodName
+{
+    return [NSString stringWithFormat:@"%@SlotIsValid", self.name];
+}
+
+- (BOOL)isValid
+{
+    SEL selector = NSSelectorFromString(self.validationMethodName);
+    
+    id node = self.mirror.node;
+    
+    if ([node respondsToSelector:selector])
+    {
+        return [node performSelector:selector withObject:nil];
+    }
+    
+    return YES;
+}
+
 
 @end

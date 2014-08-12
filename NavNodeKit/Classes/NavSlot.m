@@ -143,7 +143,7 @@
     }
     
     return _slotView;
-    
 }
+
 
 @end

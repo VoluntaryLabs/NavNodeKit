@@ -36,9 +36,28 @@
 - (void)setValue:(id)aValue;
 - (BOOL)hasEmptyValue;
 
+- (NSNumber *)numberValue;
+- (NSString *)stringValue;
+
 // lineCount
 
 - (void)setLineCount:(NSNumber *)aNumber;
 - (NSNumber *)lineCount;
+
+
+// format
+
+- (void)setFormatterClassName:(NSString *)aString;
+- (NSString *)formatterClassName;
+- (NSFormatter *)formatter;
+
+// sync
+
+- (void)setSyncsWhileEditing:(BOOL)aBool;
+- (BOOL)syncsWhileEditing;
+
+// valid
+
+- (BOOL)isValid;
 
 @end
