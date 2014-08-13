@@ -48,6 +48,7 @@
 // format
 
 - (void)setFormatterClassName:(NSString *)aString;
+- (BOOL)canFormat;
 - (NSString *)formatterClassName;
 - (NSFormatter *)formatter;
 
@@ -58,6 +59,7 @@
 
 // valid
 
+- (BOOL)canValidate;
 - (BOOL)isValid;
 
 @end

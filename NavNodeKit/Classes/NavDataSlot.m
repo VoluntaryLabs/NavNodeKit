@@ -244,6 +244,17 @@
     return [self.attributes objectForKey:@"formatterClassName"];
 }
 
+- (BOOL)canFormat
+{
+    if (self.formatterClassName)
+    {
+        Class formatterClass = NSClassFromString(self.formatterClassName);
+        return formatterClass != nil;
+    }
+    
+    return nil;
+}
+
 - (NSFormatter *)formatter
 {
     // should we cache this?
@@ -275,6 +286,13 @@
 - (NSString *)validationMethodName
 {
     return [NSString stringWithFormat:@"%@SlotIsValid", self.name];
+}
+
+- (BOOL)canValidate
+{
+    SEL selector = NSSelectorFromString(self.validationMethodName);
+    id node = self.mirror.node;
+    return selector && [node respondsToSelector:selector];
 }
 
 - (BOOL)isValid
