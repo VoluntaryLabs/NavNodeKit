@@ -170,7 +170,7 @@
                                                              object:self
                                                            userInfo:info];
         
-        [[NSNotificationCenter defaultCenter] postNotification:note];
+        [NSNotificationCenter.defaultCenter postNotification:note];
         self.isDirty = YES;
         return YES;
     }
@@ -202,7 +202,7 @@
                                                          object:self
                                                        userInfo:info];
     
-    [[NSNotificationCenter defaultCenter] postNotification:note];
+    [NSNotificationCenter.defaultCenter postNotification:note];
 }
 
 - (void)mergeWithChildren:(NSArray *)newChildren
@@ -441,7 +441,7 @@
 
 - (void)justPostSelfChanged
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"NavNodeChanged" object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:@"NavNodeChanged" object:self];
 }
 
 - (NSView *)nodeView

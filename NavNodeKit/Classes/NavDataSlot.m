@@ -211,7 +211,7 @@
                                                                        object:self.mirror.node
                                                                      userInfo:userInfo];
     
-    [[NSNotificationCenter defaultCenter] postNotification:changeNotification];
+    [NSNotificationCenter.defaultCenter postNotification:changeNotification];
 }
 */
 

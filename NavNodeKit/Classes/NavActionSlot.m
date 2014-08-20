@@ -66,7 +66,7 @@
     [dict setObject:self forKey:@"NavActionSlot"];
     
     id node = self.mirror.node;
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *center = NSNotificationCenter.defaultCenter;
     
     [center postNotificationName:@"SentNavAction"
                           object:node
