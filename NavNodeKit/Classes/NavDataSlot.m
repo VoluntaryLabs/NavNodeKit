@@ -252,7 +252,7 @@
         return formatterClass != nil;
     }
     
-    return nil;
+    return NO;
 }
 
 - (NSFormatter *)formatter
