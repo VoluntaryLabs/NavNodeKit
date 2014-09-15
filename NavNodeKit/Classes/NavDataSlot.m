@@ -303,7 +303,7 @@
     
     if ([node respondsToSelector:selector])
     {
-        return [node performSelector:selector withObject:nil];
+        return (BOOL)[node performSelector:selector withObject:nil];
     }
     
     return YES;
