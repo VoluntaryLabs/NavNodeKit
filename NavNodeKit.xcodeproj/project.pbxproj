@@ -278,6 +278,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = voluntary.net;
 				TargetAttributes = {
+					AACD77AE1905C051008832FB = {
+						DevelopmentTeam = 68AUPW6ZUW;
+					};
 					AACD77C51905C051008832FB = {
 						TestTargetID = AACD77AE1905C051008832FB;
 					};
@@ -471,6 +474,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -480,6 +485,7 @@
 				GCC_PREFIX_HEADER = "NavNodeKit/NavNodeKit-Prefix.pch";
 				INFOPLIST_FILE = "NavNodeKit/NavNodeKit-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -488,6 +494,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -497,6 +505,7 @@
 				GCC_PREFIX_HEADER = "NavNodeKit/NavNodeKit-Prefix.pch";
 				INFOPLIST_FILE = "NavNodeKit/NavNodeKit-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
