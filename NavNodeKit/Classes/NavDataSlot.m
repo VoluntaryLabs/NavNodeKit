@@ -303,7 +303,10 @@
     
     if ([node respondsToSelector:selector])
     {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         return (BOOL)[node performSelector:selector withObject:nil];
+#pragma clang diagnostic pop        
     }
     
     return YES;
