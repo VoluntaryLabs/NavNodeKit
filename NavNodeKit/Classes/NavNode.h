@@ -130,4 +130,5 @@
 
 - (void)updatedSlot:(NavSlot *)aNavSlot;
 
+
 @end
