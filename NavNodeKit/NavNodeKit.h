@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+// core
+
 #import "NavNode.h"
 #import "NavInfoNode.h"
 
@@ -17,3 +19,8 @@
 #import "NavSlot.h"
 #import "NavDataSlot.h"
 #import "NavActionSlot.h"
+
+// helpers
+
+#import "NavAppAbout.h"
+

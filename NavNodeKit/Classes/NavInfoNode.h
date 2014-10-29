@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 voluntary.net. All rights reserved.
 //
 
-#import <NavNodeKit/NavNodeKit.h>
+#import "NavNode.h"
 
 @interface NavInfoNode : NavNode
 
