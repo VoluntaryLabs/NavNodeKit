@@ -114,7 +114,7 @@
 - (NSArray *)modelActions; // deprecated
 - (NSArray *)uiActions; // deprecated
 
-- (NSString *)verifyActionMessage:(NSString *)aString;
+- (NSString *)verifyActionMessage:(NSString *)aString; // deprecating
 
 - (id)addChild;
 
