@@ -52,11 +52,12 @@
     
     for (NSBundle *bundle in allBundles)
     {
-        NSLog(@"bundle: '%@'", bundle.bundleIdentifier);
+        //NSLog(@"bundle: '%@'", bundle.bundleIdentifier);
+        
         NSString *bundleClassName = [bundle.bundleIdentifier componentsSeparatedByString:@"."].lastObject;
         Class bundleClass = NSClassFromString(bundleClassName);
         
-        if (bundleClass /*&& !bundle.principalClass*/ && [bundleClass respondsToSelector:@selector(nodeRoot)])
+        if (bundleClass && [bundleClass respondsToSelector:@selector(nodeRoot)])
         {
             id bundleNode = [bundleClass nodeRoot];
             
@@ -65,7 +66,6 @@
                 [results addObject:[bundleNode nodeAbout]];
             }
         }
-        
     }
     
     return results;
