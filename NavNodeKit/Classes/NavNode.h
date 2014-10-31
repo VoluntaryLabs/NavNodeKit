@@ -86,6 +86,8 @@
 @property (assign, nonatomic) NSTimeInterval refreshInterval;
 @property (nonatomic, retain) NSTimer *refreshTimer;
 
+- (void)initCategory;
+
 - (void)deepFetch;
 - (void)fetch;
 - (void)refresh;
@@ -109,8 +111,8 @@
 // actions
 
 - (NSArray *)actions;
-- (NSArray *)modelActions;
-- (NSArray *)uiActions;
+- (NSArray *)modelActions; // deprecated
+- (NSArray *)uiActions; // deprecated
 
 - (NSString *)verifyActionMessage:(NSString *)aString;
 

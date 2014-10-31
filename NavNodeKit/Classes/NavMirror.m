@@ -152,6 +152,22 @@
     return YES;
 }
 
+- (NSArray *)activeActionSlotNames
+{
+    NSMutableArray *slotNames = [NSMutableArray array];
+    
+    for (NavActionSlot *actionSlot in self.actionSlots)
+    {
+        if (actionSlot.isActive)
+        {
+            [slotNames addObject:actionSlot.name];
+        }
+    }
+    
+    return slotNames;
+}
+
+
 // persistence
 
 - (NSDictionary *)persistentDict

@@ -36,6 +36,8 @@
 - (NSArray *)dataSlots;
 - (NSArray *)actionSlots;
 
+- (NSArray *)activeActionSlotNames;
+
 // slot
 
 - (NavSlot *)slotNamed:(NSString *)aName;

@@ -22,7 +22,13 @@
     self.shouldSortChildren = YES;
     self.nodeSuggestedWidth = 300;
     
+    [self initCategory];
+    
     return self;
+}
+
+- (void)initCategory
+{
 }
 
 - (NSString *)nodeNote
@@ -608,21 +614,41 @@
 
 - (NSArray *)actions
 {
-    return [self.modelActions arrayByAddingObjectsFromArray:self.uiActions];
+    NSMutableArray *actions = [NSMutableArray array];
+    
+    [actions addObjectsFromArray:self.modelActions]; // deprecated
+    [actions addObjectsFromArray:self.uiActions]; // deprecated
+    
+    if (_navMirror)
+    {
+        [actions addObjectsFromArray:_navMirror.activeActionSlotNames];
+    }
+    
+    return actions;
 }
 
-- (NSArray *)modelActions
+- (NSArray *)modelActions // deprecated
 {
     return [NSMutableArray array];
 }
 
-- (NSArray *)uiActions
+- (NSArray *)uiActions // deprecated
 {
     return [NSMutableArray array];
 }
 
 - (NSString *)verifyActionMessage:(NSString *)aString
 {
+    if (_navMirror)
+    {
+        NavActionSlot *actionSlot = [_navMirror actionSlotNamed:aString];
+        
+        if (actionSlot && actionSlot.verifyMessage)
+        {
+            return actionSlot.verifyMessage;
+        }
+    }
+    
     return nil;
 }
 
