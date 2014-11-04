@@ -26,7 +26,7 @@
     return self;
 }
 
-- (id)nodeRoot // just here for a method signature
++ (id)nodeRoot // just here for a method signature
 {
     return nil;
 }
@@ -52,9 +52,16 @@
     
     for (NSBundle *bundle in allBundles)
     {
-        //NSLog(@"bundle: '%@'", bundle.bundleIdentifier);
+        printf("%s\n", bundle.bundleIdentifier.UTF8String);
+
         
         NSString *bundleClassName = [bundle.bundleIdentifier componentsSeparatedByString:@"."].lastObject;
+
+        if ([bundleClassName isEqualToString:@"BitmessageKit"])
+        {
+            NSLog(@"on bm");
+        }
+        
         Class bundleClass = NSClassFromString(bundleClassName);
         
         if (bundleClass && [bundleClass respondsToSelector:@selector(nodeRoot)])
