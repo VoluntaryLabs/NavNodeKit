@@ -52,15 +52,16 @@
     
     for (NSBundle *bundle in allBundles)
     {
-        printf("%s\n", bundle.bundleIdentifier.UTF8String);
-
+        //printf("%s\n", bundle.bundleIdentifier.UTF8String);
         
         NSString *bundleClassName = [bundle.bundleIdentifier componentsSeparatedByString:@"."].lastObject;
 
+        /*
         if ([bundleClassName isEqualToString:@"BitmessageKit"])
         {
             NSLog(@"on bm");
         }
+        */
         
         Class bundleClass = NSClassFromString(bundleClassName);
         
