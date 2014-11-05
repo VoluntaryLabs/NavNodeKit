@@ -11,6 +11,12 @@
 #import "NavMirror.h"
 #import "NavSlot.h"
 
+#define NavNodeSelectedNotification      @"NavNodeSelected"
+#define NavNodeChangedNotification       @"NavNodeChanged"
+#define NavNodeAddedChildNotification    @"NavNodeAddedChild"
+#define NavNodeRemovedChildNotification  @"NavNodeRemovedChild"
+
+
 @class NavNode;
 
 @protocol NodeViewProtocol <NSObject>
@@ -40,6 +46,9 @@
 @property (assign, nonatomic) CGFloat nodeMinWidth;
 
 @property (strong, nonatomic) NavMirror *navMirror;
+
+@property (assign, nonatomic) BOOL doesRememberChildPath;
+@property (strong, nonatomic) NSArray *rememberedChildPath;
 
 
 
@@ -95,8 +104,8 @@
 - (void)postParentChanged;
 - (void)postSelfChanged;
 - (void)postParentChainChanged;
+- (void)nodePostSelected;
 
-- (id)childWithAddress:(NSString *)address; // hack - move to node subclass
 - (id)firstChildWithKindOfClass:(Class)aClass;
 
 // --- search ---

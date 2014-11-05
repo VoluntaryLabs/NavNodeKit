@@ -172,7 +172,7 @@
         NSMutableDictionary *info = [NSMutableDictionary dictionary];
         [info setObject:aChild forKey:@"child"];
         
-        NSNotification *note = [NSNotification notificationWithName:@"NavNodeAddedChild"
+        NSNotification *note = [NSNotification notificationWithName:NavNodeAddedChildNotification
                                                              object:self
                                                            userInfo:info];
         
@@ -204,7 +204,7 @@
     [self.children removeObject:aChild];
     self.isDirty = YES;
 
-    NSNotification *note = [NSNotification notificationWithName:@"NavNodeRemovedChild"
+    NSNotification *note = [NSNotification notificationWithName:NavNodeRemovedChildNotification
                                                          object:self
                                                        userInfo:info];
     
@@ -285,6 +285,7 @@
 - (void)dealloc
 {
     [self stopRefreshTimer];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setRefreshInterval:(NSTimeInterval)refreshInterval
@@ -447,7 +448,35 @@
 
 - (void)justPostSelfChanged
 {
-    [NSNotificationCenter.defaultCenter postNotificationName:@"NavNodeChanged" object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:NavNodeChangedNotification object:self];
+}
+
+- (void)nodePostSelected
+{
+    [NSNotificationCenter.defaultCenter postNotificationName:NavNodeSelectedNotification object:self];
+}
+
+- (void)setDoesRememberChildPath:(BOOL)aBool
+{
+    _doesRememberChildPath = aBool;
+    
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(updateRememberedPath:)
+                                               name:NavNodeSelectedNotification
+                                             object:nil];
+}
+
+- (void)updateRememberedPath:(NSNotification *)aNote
+{
+    NavNode *node = aNote.object;
+    
+    //NSLog(@"node.nodePathArray = %@", node.nodePathArray);
+    //NSLog(@"self.nodePathArray = %@", self.nodePathArray);
+    
+    if ([node.nodePathArray beginsWithArray:self.nodePathArray])
+    {
+        self.rememberedChildPath = node.nodePathArray;
+    }
 }
 
 - (NSView *)nodeView
@@ -522,22 +551,6 @@
     }
     
     return NO;
-}
-
-- (id)childWithAddress:(NSString *)address
-{
-    for (id child in self.children)
-    {
-        if ([child respondsToSelector:@selector(address)])
-        {
-            if([(NSString *)[child address] isEqualToString:address])
-            {
-                return child;
-            }
-        }
-    }
-    
-    return nil;
 }
 
 - (id)firstChildWithKindOfClass:(Class)aClass
