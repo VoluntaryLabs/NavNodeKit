@@ -349,6 +349,11 @@
     return nil;
 }
 
+- (NSArray *)nodeTitlePath
+{
+    return [self.nodePathArray map:@selector(nodeTitle)];
+}
+
 - (NSArray *)nodeTitlePath:(NSArray *)pathComponents
 {
     NavNode *node = self;
@@ -451,6 +456,8 @@
     [NSNotificationCenter.defaultCenter postNotificationName:NavNodeChangedNotification object:self];
 }
 
+// --- remembered child path ---
+
 - (void)nodePostSelected
 {
     [NSNotificationCenter.defaultCenter postNotificationName:NavNodeSelectedNotification object:self];
@@ -461,23 +468,49 @@
     _doesRememberChildPath = aBool;
     
     [NSNotificationCenter.defaultCenter addObserver:self
-                                           selector:@selector(updateRememberedPath:)
+                                           selector:@selector(nodeUpdateRememberedPath:)
                                                name:NavNodeSelectedNotification
                                              object:nil];
+    [self nodeReadRememberedChildPath];
 }
 
-- (void)updateRememberedPath:(NSNotification *)aNote
+
+- (NSString *)nodeRememberedPathKey
+{
+    NSString *path = [self.nodeTitlePath componentsJoinedByString:@"/"];
+    return [NSString stringWithFormat:@"NavNodeRememberedPath-%@", path];
+}
+
+- (void)nodeReadRememberedChildPath
+{
+    self.rememberedChildTitlePath = [NSUserDefaults.standardUserDefaults objectForKey:self.nodeRememberedPathKey];
+    //[self nodePostSelected];
+}
+
+- (void)nodeWriteRememberedChildPath
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.rememberedChildTitlePath forKey:self.nodeRememberedPathKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    //[self nodePostSelected];
+}
+
+- (void)nodeUpdateRememberedPath:(NSNotification *)aNote
 {
     NavNode *node = aNote.object;
     
     //NSLog(@"node.nodePathArray = %@", node.nodePathArray);
     //NSLog(@"self.nodePathArray = %@", self.nodePathArray);
     
-    if ([node.nodePathArray beginsWithArray:self.nodePathArray])
+    if ([node.nodeTitlePath beginsWithArray:self.nodeTitlePath] &&
+        ![node.nodeTitlePath isEqualToArray:self.nodeTitlePath])
     {
-        self.rememberedChildPath = node.nodePathArray;
+        self.rememberedChildTitlePath = node.nodeTitlePath;
+        [self nodeWriteRememberedChildPath];
+
     }
 }
+
+// ---------------------------------------
 
 - (NSView *)nodeView
 {

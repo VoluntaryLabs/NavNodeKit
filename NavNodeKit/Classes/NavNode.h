@@ -48,7 +48,7 @@
 @property (strong, nonatomic) NavMirror *navMirror;
 
 @property (assign, nonatomic) BOOL doesRememberChildPath;
-@property (strong, nonatomic) NSArray *rememberedChildPath;
+@property (strong, nonatomic) NSArray *rememberedChildTitlePath;
 
 
 
