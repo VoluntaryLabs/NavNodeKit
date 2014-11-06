@@ -806,6 +806,7 @@
 
         if ([child respondsToSelector:selector])
         {
+            
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             id value = [child performSelector:selector];
@@ -838,5 +839,32 @@
     
 }
 
+// helper
+
+/*
+- (NSMutableArray *)nodeLeafs
+{
+    NSMutableArray *leafs = [NSMutableArray array];
+    
+    for (NavNode *child in self.children)
+    {
+        if (child.children.count == 0)
+        {
+            [leafs addObject:child];
+        }
+        else
+        {
+            [leafs addObjectsFromArray:[child nodeLeafs]];
+        }
+    }
+    
+    return leafs;
+}
+
+- (void)nodeFlattenChildren
+{
+    [self mergeWithChildren:self.nodeLeafs];
+}
+*/
 
 @end

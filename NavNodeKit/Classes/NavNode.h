@@ -141,5 +141,11 @@
 
 - (void)updatedSlot:(NavSlot *)aNavSlot;
 
+// helper
+
+/*
+- (NSMutableArray *)nodeLeafs;
+- (void)nodeFlattenChildren;
+*/
 
 @end
