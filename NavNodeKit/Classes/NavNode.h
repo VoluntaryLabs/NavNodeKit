@@ -141,6 +141,8 @@
 
 - (void)updatedSlot:(NavSlot *)aNavSlot;
 
+- (void)delete;
+
 // helper
 
 /*
