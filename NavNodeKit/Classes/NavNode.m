@@ -354,6 +354,26 @@
     return [self.nodePathArray map:@selector(nodeTitle)];
 }
 
+- (NSArray *)nodeMaxTitlePath:(NSArray *)pathComponents
+{
+    NavNode *node = self;
+    NSMutableArray *nodes = [NSMutableArray array];
+    
+    for (NSString *title in pathComponents)
+    {
+        node = [node childWithTitle:title];
+        
+        if (node == nil)
+        {
+            return nodes;
+        }
+        
+        [nodes addObject:node];
+    }
+    
+    return nodes;
+}
+
 - (NSArray *)nodeTitlePath:(NSArray *)pathComponents
 {
     NavNode *node = self;

@@ -84,6 +84,7 @@
 
 - (NavNode *)childWithTitle:(NSString *)aTitle;
 - (NSArray *)nodeTitlePath:(NSArray *)pathComponents;
+- (NSArray *)nodeMaxTitlePath:(NSArray *)pathComponents;
 
 - (NSImage *)nodeIconForState:(NSString *)aState;
 
