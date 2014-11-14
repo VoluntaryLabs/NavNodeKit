@@ -22,11 +22,13 @@
     return self;
 }
 
+/*
 - (NSView *)nodeView
 {
     NSView *view = [super nodeView];
     return view;
 }
+*/
 
 - (NSString *)nodeNote
 {
