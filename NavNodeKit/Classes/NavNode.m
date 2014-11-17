@@ -459,21 +459,12 @@
 {
     [self postSelfChanged];
     [self.nodeParent postParentChainChanged];
-    
-    /*
-    NavNode *node = self;
-    
-    while (node)
-    {
-        [node postSelfChanged];
-        node = node.nodeParent;
-    }
-    */
 }
 
 - (void)justPostSelfChanged
 {
-    [NSNotificationCenter.defaultCenter postNotificationName:NavNodeChangedNotification object:self];
+    [NSNotificationCenter.defaultCenter
+        postNotificationName:NavNodeChangedNotification object:self];
 }
 
 // --- remembered child path ---
