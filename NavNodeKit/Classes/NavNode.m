@@ -324,8 +324,29 @@
     @catch (NSException * e)
     {
         NSLog(@"refresh exception %@", e);
+        
+        NSAlert *msgBox = [[NSAlert alloc] init];
+        [msgBox setMessageText:e.name];
+        [msgBox addButtonWithTitle: @"OK"];
+        [msgBox addButtonWithTitle: @"Exit"];
+        
+        [msgBox beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow
+                           modalDelegate:self
+                          didEndSelector:@selector(refreshAlertDidEnd:returnCode:contextInfo:)
+                             contextInfo:nil];
     }
 }
+
+- (void)refreshAlertDidEnd:(NSAlert *)alert
+            returnCode:(NSInteger)returnCode
+           contextInfo:(void *)contextInfo
+{
+    if (returnCode == 1001)
+    {
+        [NSApplication.sharedApplication terminate:self];
+    }
+}
+
 
 - (void)stopRefreshTimer
 {
