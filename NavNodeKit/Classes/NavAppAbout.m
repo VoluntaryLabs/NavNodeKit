@@ -47,6 +47,10 @@
 
 - (NSArray *)aboutNodes
 {
+    // walk through app bundles, find classes of the same name and see if they have a nodeRoot class method
+    // if so, see if the object returned for it has a nodeAbout method
+    // return the nodeAbout objects
+    
     NSArray *allBundles = [NSBundle.allBundles arrayByAddingObjectsFromArray:NSBundle.allFrameworks];
     NSMutableArray *results = [NSMutableArray array];
     
@@ -55,13 +59,6 @@
         //printf("%s\n", bundle.bundleIdentifier.UTF8String);
         
         NSString *bundleClassName = [bundle.bundleIdentifier componentsSeparatedByString:@"."].lastObject;
-
-        /*
-        if ([bundleClassName isEqualToString:@"BitmessageKit"])
-        {
-            NSLog(@"on bm");
-        }
-        */
         
         Class bundleClass = NSClassFromString(bundleClassName);
         

@@ -44,7 +44,6 @@
 - (void)setLineCount:(NSNumber *)aNumber;
 - (NSNumber *)lineCount;
 
-
 // format
 
 - (void)setFormatterClassName:(NSString *)aString;

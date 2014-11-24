@@ -16,8 +16,6 @@
     self = [super init];
     
     self.children = [NSMutableArray array];
-    //self.actions  = [NSMutableArray array];
-    //[self.actions addObject:@"testAction"];
     self.sortAccending = YES;
     self.shouldSortChildren = YES;
     self.nodeSuggestedWidth = 300;
@@ -190,6 +188,7 @@
 - (void)removeChild:(id)aChild
 {
     NSInteger i = [self.children indexOfObject:aChild];
+    
     NSMutableDictionary *info = [NSMutableDictionary dictionary];
     [info setObject:aChild forKey:@"child"];
     [info setObject:[NSNumber numberWithUnsignedInteger:i] forKey:@"index"];
@@ -234,13 +233,11 @@
     if (self.shouldSortChildren && self.children.count)
     {
         NSString *key = self.sortChildrenKey ? self.sortChildrenKey : @"nodeTitle";
-
         
         NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:key
                                                                  ascending:self.sortAccending
                                                                   selector:self.sortSelector];
 
-        //NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle" ascending:YES];
         [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     }
 }
@@ -255,7 +252,6 @@
         [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     }
 }
-
 
 - (void)removeFromParent
 {
@@ -893,10 +889,6 @@
     return leafs;
 }
 
-- (void)nodeFlattenChildren
-{
-    [self mergeWithChildren:self.nodeLeafs];
-}
 */
 
 @end

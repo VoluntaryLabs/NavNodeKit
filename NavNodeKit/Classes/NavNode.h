@@ -144,11 +144,4 @@
 
 - (void)delete;
 
-// helper
-
-/*
-- (NSMutableArray *)nodeLeafs;
-- (void)nodeFlattenChildren;
-*/
-
 @end

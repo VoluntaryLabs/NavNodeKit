@@ -20,6 +20,8 @@
     return self;
 }
 
+// --- dict ---
+
 - (NSDictionary *)nodeDict
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -39,7 +41,6 @@
     
 }
 
-
 // slots
 
 - (NSArray *)slotsOfKind:(Class)aClass
@@ -57,7 +58,6 @@
     return dataSlots;
 }
 
-
 - (NSArray *)dataSlots
 {
     return [self slotsOfKind:NavDataSlot.class];
@@ -68,7 +68,7 @@
     return [self slotsOfKind:NavActionSlot.class];
 }
 
-// slot
+// --- slot ---
 
 - (NavSlot *)slotNamed:(NSString *)aName
 {
@@ -133,7 +133,6 @@
     return slot;
 }
 
-
 - (BOOL)dataSlotsAreFilled
 {
     for (NavDataSlot *slot in self.dataSlots)
@@ -167,8 +166,7 @@
     return slotNames;
 }
 
-
-// persistence
+// --- persistence ---
 
 - (NSDictionary *)persistentDict
 {
