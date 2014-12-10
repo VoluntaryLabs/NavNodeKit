@@ -29,6 +29,32 @@
 {
 }
 
+// width
+
+- (void)setNodeSuggestedWidthNumber:(NSNumber *)aNumber
+{
+    self.nodeSuggestedWidth = aNumber.floatValue;
+}
+
+- (NSNumber *)nodeSuggestedWidthNumber
+{
+    return [NSNumber numberWithFloat:self.nodeSuggestedWidth];
+}
+
+// sort
+
+- (void)setNodeShouldSortChildren:(NSNumber *)aBoolNumber
+{
+    self.shouldSortChildren = aBoolNumber.boolValue;
+}
+
+- (NSNumber *)nodeShouldSortChildren
+{
+    return [NSNumber numberWithBool:self.shouldSortChildren];
+}
+
+// titles
+
 - (NSString *)nodeNote
 {
     if (self.shouldUseCountForNodeNote && self.children.count)

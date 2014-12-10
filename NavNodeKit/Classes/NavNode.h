@@ -61,6 +61,14 @@
 - (NSArray *)pathOfClass:(Class)aClass;
 - (NSUInteger)nodeDepth;
 
+// width
+
+- (void)setNodeSuggestedWidthNumber:(NSNumber *)aNumber;
+- (NSNumber *)nodeSuggestedWidthNumber;
+
+- (void)setNodeShouldSortChildren:(NSNumber *)aBoolNumber;
+- (NSNumber *)nodeShouldSortChildren;
+
 // children
 
 - (BOOL)addChild:(id)aChild;
