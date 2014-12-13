@@ -22,6 +22,11 @@
     return self;
 }
 
+- (BOOL)nodeForceDisplayChildren
+{
+    return (self.children.count > 0);
+}
+
 /*
 - (NSView *)nodeView
 {
@@ -60,5 +65,29 @@
     
     [self setChildren:children];
 }
+
+/*
+- (void)setContentToResourceName:(NSString *)resourceName
+{
+    NSString *resourcePath = [NSBundle pathForResource:resourceName];
+    NSError *error;
+    NSString *fileContent = [NSString stringWithContentsOfFile:resourcePath encoding:NSUTF8StringEncoding error:&error];
+    self.nodeContentString = fileContent;
+}
+*/
+
+- (NSString *)nodeContentString
+{
+    if (!_nodeContentString && _nodeResourceName)
+    {
+        NSString *resourcePath = [NSBundle pathForResource:_nodeResourceName];
+        NSError *error;
+        
+        _nodeContentString = [NSString stringWithContentsOfFile:resourcePath encoding:NSUTF8StringEncoding error:&error];
+    }
+    
+    return _nodeContentString;
+}
+
 
 @end
