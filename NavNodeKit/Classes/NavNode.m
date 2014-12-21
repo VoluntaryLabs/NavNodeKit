@@ -917,4 +917,9 @@
 
 */
 
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+{
+    [NSException raise:@"Missing method" format:nil];
+}
+
 @end
