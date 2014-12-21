@@ -39,8 +39,8 @@
 @property (assign, nonatomic) NSNumber *nodeShouldUseCountForNodeNote;
 @property (assign, nonatomic) NSNumber *nodeIsDirty;
 
-@property (strong, nonatomic) Class childClass;
-@property (strong, nonatomic) NSString *sortChildrenKey;
+@property (strong, nonatomic) Class nodeChildClass;
+@property (strong, nonatomic) NSString *nodeSortChildrenKey;
 @property (assign, nonatomic) BOOL sortAccending;
 @property (assign, nonatomic) BOOL nodeForceDisplayChildren;
 @property (assign, nonatomic) CGFloat nodeSuggestedWidth;
@@ -48,7 +48,7 @@
 
 
 @property (assign, nonatomic) BOOL doesRememberChildPath;
-@property (strong, nonatomic) NSArray *rememberedChildTitlePath;
+@property (strong, nonatomic) NSArray *nodeRememberedChildTitlePath;
 
 
 

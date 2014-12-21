@@ -146,9 +146,9 @@
 
 - (id)addChild
 {
-    if (self.childClass)
+    if (self.nodeChildClass)
     {
-        id child = [[self.childClass alloc] init];
+        id child = [[self.nodeChildClass alloc] init];
         [self addChild:child];
         [self postParentChanged];
         return child;
@@ -247,7 +247,7 @@
 {
     if (self.nodeShouldSortChildren.boolValue && self.children.count)
     {
-        NSString *key = self.sortChildrenKey ? self.sortChildrenKey : @"nodeTitle";
+        NSString *key = self.nodeSortChildrenKey ? self.nodeSortChildrenKey : @"nodeTitle";
         
         NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:key
                                                                  ascending:self.sortAccending
@@ -526,13 +526,13 @@
 
 - (void)nodeReadRememberedChildPath
 {
-    self.rememberedChildTitlePath = [NSUserDefaults.standardUserDefaults objectForKey:self.nodeRememberedPathKey];
+    self.nodeRememberedChildTitlePath = [NSUserDefaults.standardUserDefaults objectForKey:self.nodeRememberedPathKey];
     //[self nodePostSelected];
 }
 
 - (void)nodeWriteRememberedChildPath
 {
-    [[NSUserDefaults standardUserDefaults] setObject:self.rememberedChildTitlePath forKey:self.nodeRememberedPathKey];
+    [[NSUserDefaults standardUserDefaults] setObject:self.nodeRememberedChildTitlePath forKey:self.nodeRememberedPathKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     //[self nodePostSelected];
 }
@@ -547,7 +547,7 @@
     if ([node.nodeTitlePath beginsWithArray:self.nodeTitlePath] &&
         ![node.nodeTitlePath isEqualToArray:self.nodeTitlePath])
     {
-        self.rememberedChildTitlePath = node.nodeTitlePath;
+        self.nodeRememberedChildTitlePath = node.nodeTitlePath;
         [self nodeWriteRememberedChildPath];
 
     }
