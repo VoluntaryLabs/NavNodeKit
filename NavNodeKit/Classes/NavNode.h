@@ -42,7 +42,7 @@
 @property (strong, nonatomic) Class nodeChildClass;
 @property (strong, nonatomic) NSString *nodeSortChildrenKey;
 @property (strong, nonatomic) NSNumber *nodeSortAccending;  
-@property (assign, nonatomic) BOOL nodeForceDisplayChildren;  // todo: make object
+@property (strong, nonatomic) NSNumber *nodeForceDisplayChildren;  // todo: make object
 @property (assign, nonatomic) CGFloat nodeSuggestedWidth;  // todo: make object
 @property (assign, nonatomic) CGFloat nodeMinWidth;  // todo: make object
 

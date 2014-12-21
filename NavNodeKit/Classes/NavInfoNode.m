@@ -22,12 +22,6 @@
     return self;
 }
 
-/*
-- (BOOL)nodeForceDisplayChildren
-{
-    return (self.children.count > 0);
-}
-*/
 
 /*
 - (NSView *)nodeView
