@@ -42,12 +42,12 @@
 @property (strong, nonatomic) Class nodeChildClass;
 @property (strong, nonatomic) NSString *nodeSortChildrenKey;
 @property (strong, nonatomic) NSNumber *nodeSortAccending;  
-@property (strong, nonatomic) NSNumber *nodeForceDisplayChildren;  // todo: make object
-@property (assign, nonatomic) CGFloat nodeSuggestedWidth;  // todo: make object
-@property (assign, nonatomic) CGFloat nodeMinWidth;  // todo: make object
+@property (strong, nonatomic) NSNumber *nodeForceDisplayChildren;
+@property (strong, nonatomic) NSNumber *nodeSuggestedWidth;  // todo: make object
+@property (strong, nonatomic) NSNumber *nodeMinWidth;  // todo: make object
 
 
-@property (strong, nonatomic) NSNumber *nodeDoesRememberChildPath;  // todo: make object
+@property (strong, nonatomic) NSNumber *nodeDoesRememberChildPath;
 @property (strong, nonatomic) NSArray *nodeRememberedChildTitlePath;
 
 
@@ -61,13 +61,6 @@
 - (NSArray *)pathOfClass:(Class)aClass;
 - (NSUInteger)nodeDepth;
 
-// width
-
-- (void)setNodeSuggestedWidthNumber:(NSNumber *)aNumber;
-- (NSNumber *)nodeSuggestedWidthNumber;
-
-- (void)setNodeShouldSortChildren:(NSNumber *)aBoolNumber;
-- (NSNumber *)nodeShouldSortChildren;
 
 // children
 

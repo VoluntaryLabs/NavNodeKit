@@ -18,7 +18,7 @@
     self.children = [NSMutableArray array];
     self.nodeSortAccending = @YES;
     self.nodeShouldSortChildren = @YES;
-    self.nodeSuggestedWidth = 300;
+    self.nodeSuggestedWidth = @300;
     
     [self initCategory];
     
@@ -28,19 +28,6 @@
 - (void)initCategory
 {
 }
-
-// width
-
-- (void)setNodeSuggestedWidthNumber:(NSNumber *)aNumber
-{
-    self.nodeSuggestedWidth = aNumber.floatValue;
-}
-
-- (NSNumber *)nodeSuggestedWidthNumber
-{
-    return [NSNumber numberWithFloat:self.nodeSuggestedWidth];
-}
-
 
 // titles
 

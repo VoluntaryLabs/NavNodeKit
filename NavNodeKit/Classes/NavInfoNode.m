@@ -16,7 +16,7 @@
     
     if (self)
     {
-        self.nodeSuggestedWidth = 300;
+        self.nodeSuggestedWidth = @300;
     }
     
     return self;

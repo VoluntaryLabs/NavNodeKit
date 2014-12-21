@@ -19,7 +19,7 @@
         self.nodeTitle = @"About";
         //self.nodeSubtitle = self.versionString;
         self.nodeShouldSortChildren = @NO;
-        self.nodeSuggestedWidth = 150;
+        self.nodeSuggestedWidth = @150;
         [self mergeWithChildren:self.aboutNodes];
     }
     
