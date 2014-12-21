@@ -506,9 +506,9 @@
     [NSNotificationCenter.defaultCenter postNotificationName:NavNodeSelectedNotification object:self];
 }
 
-- (void)setDoesRememberChildPath:(BOOL)aBool
+- (void)setDoesRememberChildPath:(NSNumber *)aBoolNumber
 {
-    _doesRememberChildPath = aBool;
+    _nodeDoesRememberChildPath = aBoolNumber;
     
     [NSNotificationCenter.defaultCenter addObserver:self
                                            selector:@selector(nodeUpdateRememberedPath:)

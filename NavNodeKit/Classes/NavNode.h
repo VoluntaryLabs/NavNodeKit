@@ -47,7 +47,7 @@
 @property (assign, nonatomic) CGFloat nodeMinWidth;  // todo: make object
 
 
-@property (assign, nonatomic) BOOL doesRememberChildPath;  // todo: make object
+@property (strong, nonatomic) NSNumber *nodeDoesRememberChildPath;  // todo: make object
 @property (strong, nonatomic) NSArray *nodeRememberedChildTitlePath;
 
 
