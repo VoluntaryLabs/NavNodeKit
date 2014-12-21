@@ -32,12 +32,12 @@
 @property (assign, nonatomic) NavNode *nodeParent;
 @property (strong, nonatomic) NSMutableArray *children;
 @property (strong, nonatomic) NSView *nodeView;
-@property (assign, nonatomic) Class nodeViewClass;
+@property (strong, nonatomic) Class nodeViewClass;
 
-@property (assign, nonatomic) NSNumber *nodeShouldSelectChildOnAdd;
-@property (assign, nonatomic) NSNumber *nodeShouldSortChildren;
-@property (assign, nonatomic) NSNumber *nodeShouldUseCountForNodeNote;
-@property (assign, nonatomic) NSNumber *nodeIsDirty;
+@property (strong, nonatomic) NSNumber *nodeShouldSelectChildOnAdd;
+@property (strong, nonatomic) NSNumber *nodeShouldSortChildren;
+@property (strong, nonatomic) NSNumber *nodeShouldUseCountForNodeNote;
+@property (strong, nonatomic) NSNumber *nodeIsDirty;
 
 @property (strong, nonatomic) Class nodeChildClass;
 @property (strong, nonatomic) NSString *nodeSortChildrenKey;
