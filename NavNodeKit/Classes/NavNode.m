@@ -16,7 +16,7 @@
     self = [super init];
     
     self.children = [NSMutableArray array];
-    self.sortAccending = YES;
+    self.nodeSortAccending = @YES;
     self.nodeShouldSortChildren = @YES;
     self.nodeSuggestedWidth = 300;
     
@@ -250,7 +250,7 @@
         NSString *key = self.nodeSortChildrenKey ? self.nodeSortChildrenKey : @"nodeTitle";
         
         NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:key
-                                                                 ascending:self.sortAccending
+                                                                 ascending:self.nodeSortAccending.boolValue
                                                                   selector:self.sortSelector];
 
         [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
@@ -262,7 +262,7 @@
     if (self.nodeShouldSortChildren.boolValue)
     {
         NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:aKey
-                                                                 ascending:self.sortAccending
+                                                                 ascending:self.nodeSortAccending.boolValue
                                                                   selector:@selector(compare:)];
         [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     }

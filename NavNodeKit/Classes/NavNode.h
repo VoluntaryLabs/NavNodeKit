@@ -30,7 +30,7 @@
 @property (strong, nonatomic) NavMirror *navMirror;
 
 @property (assign, nonatomic) NavNode *nodeParent;
-@property (strong, nonatomic) NSMutableArray *children;
+@property (strong, nonatomic) NSMutableArray *children;  // todo: nodeChildren
 @property (strong, nonatomic) NSView *nodeView;
 @property (strong, nonatomic) Class nodeViewClass;
 
@@ -41,13 +41,13 @@
 
 @property (strong, nonatomic) Class nodeChildClass;
 @property (strong, nonatomic) NSString *nodeSortChildrenKey;
-@property (assign, nonatomic) BOOL sortAccending;
-@property (assign, nonatomic) BOOL nodeForceDisplayChildren;
-@property (assign, nonatomic) CGFloat nodeSuggestedWidth;
-@property (assign, nonatomic) CGFloat nodeMinWidth;
+@property (strong, nonatomic) NSNumber *nodeSortAccending;  
+@property (assign, nonatomic) BOOL nodeForceDisplayChildren;  // todo: make object
+@property (assign, nonatomic) CGFloat nodeSuggestedWidth;  // todo: make object
+@property (assign, nonatomic) CGFloat nodeMinWidth;  // todo: make object
 
 
-@property (assign, nonatomic) BOOL doesRememberChildPath;
+@property (assign, nonatomic) BOOL doesRememberChildPath;  // todo: make object
 @property (strong, nonatomic) NSArray *nodeRememberedChildTitlePath;
 
 
