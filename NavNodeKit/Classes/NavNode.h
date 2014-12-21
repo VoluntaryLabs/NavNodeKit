@@ -33,8 +33,8 @@
 @property (strong, nonatomic) NSView *nodeView;
 @property (assign, nonatomic) Class nodeViewClass;
 
-@property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
-@property (assign, nonatomic) BOOL shouldSortChildren;
+@property (assign, nonatomic) NSNumber *nodeShouldSelectChildOnAdd;
+@property (assign, nonatomic) NSNumber *nodeShouldSortChildren;
 @property (assign, nonatomic) BOOL shouldUseCountForNodeNote;
 @property (assign, nonatomic) BOOL isDirty;
 

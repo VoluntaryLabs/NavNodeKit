@@ -17,7 +17,7 @@
     
     self.children = [NSMutableArray array];
     self.sortAccending = YES;
-    self.shouldSortChildren = YES;
+    self.nodeShouldSortChildren = @YES;
     self.nodeSuggestedWidth = 300;
     
     [self initCategory];
@@ -41,17 +41,6 @@
     return [NSNumber numberWithFloat:self.nodeSuggestedWidth];
 }
 
-// sort
-
-- (void)setNodeShouldSortChildren:(NSNumber *)aBoolNumber
-{
-    self.shouldSortChildren = aBoolNumber.boolValue;
-}
-
-- (NSNumber *)nodeShouldSortChildren
-{
-    return [NSNumber numberWithBool:self.shouldSortChildren];
-}
 
 // titles
 
@@ -256,7 +245,7 @@
 
 - (void)sortChildren
 {
-    if (self.shouldSortChildren && self.children.count)
+    if (self.nodeShouldSortChildren.boolValue && self.children.count)
     {
         NSString *key = self.sortChildrenKey ? self.sortChildrenKey : @"nodeTitle";
         
@@ -270,7 +259,7 @@
 
 - (void)sortChildrenWithKey:(NSString *)aKey
 {
-    if (self.shouldSortChildren)
+    if (self.nodeShouldSortChildren.boolValue)
     {
         NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:aKey
                                                                  ascending:self.sortAccending
