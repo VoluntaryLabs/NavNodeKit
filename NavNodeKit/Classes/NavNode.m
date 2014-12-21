@@ -17,7 +17,7 @@
     
     self.children = [NSMutableArray array];
     self.sortAccending = YES;
-    self.shouldSortChildren = YES;
+    self.nodeShouldSortChildren = @YES;
     self.nodeSuggestedWidth = 300;
     
     [self initCategory];
@@ -41,23 +41,12 @@
     return [NSNumber numberWithFloat:self.nodeSuggestedWidth];
 }
 
-// sort
-
-- (void)setNodeShouldSortChildren:(NSNumber *)aBoolNumber
-{
-    self.shouldSortChildren = aBoolNumber.boolValue;
-}
-
-- (NSNumber *)nodeShouldSortChildren
-{
-    return [NSNumber numberWithBool:self.shouldSortChildren];
-}
 
 // titles
 
 - (NSString *)nodeNote
 {
-    if (self.shouldUseCountForNodeNote && self.children.count)
+    if (self.nodeShouldUseCountForNodeNote.boolValue && self.children.count)
     {
         return [NSString stringWithFormat:@"%i", (int)self.children.count];
     }
@@ -201,7 +190,7 @@
                                                            userInfo:info];
         
         [NSNotificationCenter.defaultCenter postNotification:note];
-        self.isDirty = YES;
+        self.nodeIsDirty = @YES;
         return YES;
     }
     else
@@ -227,7 +216,7 @@
     }
     
     [self.children removeObject:aChild];
-    self.isDirty = YES;
+    self.nodeIsDirty = @YES;
 
     NSNotification *note = [NSNotification notificationWithName:NavNodeRemovedChildNotification
                                                          object:self
@@ -256,7 +245,7 @@
 
 - (void)sortChildren
 {
-    if (self.shouldSortChildren && self.children.count)
+    if (self.nodeShouldSortChildren.boolValue && self.children.count)
     {
         NSString *key = self.sortChildrenKey ? self.sortChildrenKey : @"nodeTitle";
         
@@ -270,7 +259,7 @@
 
 - (void)sortChildrenWithKey:(NSString *)aKey
 {
-    if (self.shouldSortChildren)
+    if (self.nodeShouldSortChildren.boolValue)
     {
         NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:aKey
                                                                  ascending:self.sortAccending
@@ -774,11 +763,11 @@
 /*
 - (void)setIsDirty:(BOOL)aBool
 {
-    if (_isDirty != aBool)
+    if (self.nodeIsDirty.boolValue != aBool)
     {
-        _isDirty = aBool;
+        self.nodeIsDirty = [NSNumber numberWithBool:aBool];
         
-        if (_isDirty)
+        if (aBool)
         {
             [self notifyChainDirty];
         }
@@ -788,7 +777,7 @@
 
 - (BOOL)isDirtyRecursive
 {
-    if (self.isDirty)
+    if (self.nodeIsDirty.boolValue)
     {
         return YES;
     }
@@ -806,7 +795,7 @@
 
 - (void)setCleanRecursive
 {
-    self.isDirty = NO;
+    self.nodeIsDirty = @NO;
     
     for (NavNode *child in self.children)
     {

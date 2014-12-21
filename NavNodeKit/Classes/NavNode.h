@@ -27,16 +27,17 @@
 
 @interface NavNode : NSObject
 
+@property (strong, nonatomic) NavMirror *navMirror;
+
 @property (assign, nonatomic) NavNode *nodeParent;
 @property (strong, nonatomic) NSMutableArray *children;
-//@property (strong, nonatomic) NSMutableArray *actions;
 @property (strong, nonatomic) NSView *nodeView;
 @property (assign, nonatomic) Class nodeViewClass;
 
-@property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
-@property (assign, nonatomic) BOOL shouldSortChildren;
-@property (assign, nonatomic) BOOL shouldUseCountForNodeNote;
-@property (assign, nonatomic) BOOL isDirty;
+@property (assign, nonatomic) NSNumber *nodeShouldSelectChildOnAdd;
+@property (assign, nonatomic) NSNumber *nodeShouldSortChildren;
+@property (assign, nonatomic) NSNumber *nodeShouldUseCountForNodeNote;
+@property (assign, nonatomic) NSNumber *nodeIsDirty;
 
 @property (strong, nonatomic) Class childClass;
 @property (strong, nonatomic) NSString *sortChildrenKey;
@@ -45,7 +46,6 @@
 @property (assign, nonatomic) CGFloat nodeSuggestedWidth;
 @property (assign, nonatomic) CGFloat nodeMinWidth;
 
-@property (strong, nonatomic) NavMirror *navMirror;
 
 @property (assign, nonatomic) BOOL doesRememberChildPath;
 @property (strong, nonatomic) NSArray *rememberedChildTitlePath;
