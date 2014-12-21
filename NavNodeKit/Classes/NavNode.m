@@ -46,7 +46,7 @@
 
 - (NSString *)nodeNote
 {
-    if (self.shouldUseCountForNodeNote && self.children.count)
+    if (self.nodeShouldUseCountForNodeNote.boolValue && self.children.count)
     {
         return [NSString stringWithFormat:@"%i", (int)self.children.count];
     }
