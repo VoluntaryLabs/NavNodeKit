@@ -37,7 +37,7 @@
 @property (assign, nonatomic) NSNumber *nodeShouldSelectChildOnAdd;
 @property (assign, nonatomic) NSNumber *nodeShouldSortChildren;
 @property (assign, nonatomic) NSNumber *nodeShouldUseCountForNodeNote;
-@property (assign, nonatomic) BOOL isDirty;
+@property (assign, nonatomic) NSNumber *nodeIsDirty;
 
 @property (strong, nonatomic) Class childClass;
 @property (strong, nonatomic) NSString *sortChildrenKey;

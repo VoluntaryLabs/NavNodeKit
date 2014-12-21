@@ -190,7 +190,7 @@
                                                            userInfo:info];
         
         [NSNotificationCenter.defaultCenter postNotification:note];
-        self.isDirty = YES;
+        self.nodeIsDirty = @YES;
         return YES;
     }
     else
@@ -216,7 +216,7 @@
     }
     
     [self.children removeObject:aChild];
-    self.isDirty = YES;
+    self.nodeIsDirty = @YES;
 
     NSNotification *note = [NSNotification notificationWithName:NavNodeRemovedChildNotification
                                                          object:self
@@ -763,11 +763,11 @@
 /*
 - (void)setIsDirty:(BOOL)aBool
 {
-    if (_isDirty != aBool)
+    if (self.nodeIsDirty.boolValue != aBool)
     {
-        _isDirty = aBool;
+        self.nodeIsDirty = [NSNumber numberWithBool:aBool];
         
-        if (_isDirty)
+        if (aBool)
         {
             [self notifyChainDirty];
         }
@@ -777,7 +777,7 @@
 
 - (BOOL)isDirtyRecursive
 {
-    if (self.isDirty)
+    if (self.nodeIsDirty.boolValue)
     {
         return YES;
     }
@@ -795,7 +795,7 @@
 
 - (void)setCleanRecursive
 {
-    self.isDirty = NO;
+    self.nodeIsDirty = @NO;
     
     for (NavNode *child in self.children)
     {
