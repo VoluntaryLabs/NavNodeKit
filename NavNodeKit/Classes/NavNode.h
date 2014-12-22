@@ -43,13 +43,18 @@
 @property (strong, nonatomic) NSString *nodeSortChildrenKey;
 @property (strong, nonatomic) NSNumber *nodeSortAccending;  
 @property (strong, nonatomic) NSNumber *nodeForceDisplayChildren;
-@property (strong, nonatomic) NSNumber *nodeSuggestedWidth;  // todo: make object
-@property (strong, nonatomic) NSNumber *nodeMinWidth;  // todo: make object
+@property (strong, nonatomic) NSNumber *nodeSuggestedWidth;
+@property (strong, nonatomic) NSNumber *nodeMinWidth;
 
+// --- last path ---
 
 @property (strong, nonatomic) NSNumber *nodeDoesRememberChildPath;
 @property (strong, nonatomic) NSArray *nodeRememberedChildTitlePath;
 
+// --- search ---
+
+//@property (assign, nonatomic) BOOL isSearching;
+@property (strong, nonatomic) NSMutableArray *searchResults;
 
 
 - (NSString *)nodeTitle;
@@ -111,9 +116,6 @@
 - (id)firstChildWithKindOfClass:(Class)aClass;
 
 // --- search ---
-
-@property (assign, nonatomic) BOOL isSearching;
-@property (strong, nonatomic) NSMutableArray *searchResults;
 
 - (BOOL)canSearch;
 - (void)search:(NSString *)aString;
