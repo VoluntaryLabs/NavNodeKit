@@ -88,7 +88,7 @@
     return nodePathArray;
 }
 
-- (NSArray *)pathOfClass:(Class)aClass
+- (NSArray *)nodePathOfClass:(Class)aClass
 {
     // returns all nodes of a given class in the path
     
@@ -321,7 +321,7 @@
     }
     @catch (NSException * e)
     {
-        NSLog(@"refresh exception %@", e);
+        NSLog(@"refresh exception:\n %@", [e fullDescription]);
         
         NSAlert *msgBox = [[NSAlert alloc] init];
         [msgBox setMessageText:e.name];
@@ -576,7 +576,7 @@
 {
     NSArray *parts = [aString componentsSeparatedByString:@" "];
     
-    _searchResults = [NSMutableArray array];
+    _nodeSearchResults = [NSMutableArray array];
     
     for (NavNode *child in self.children)
     {
@@ -596,7 +596,7 @@
         
         if (remaining == 0)
         {
-            [_searchResults addObject:child];
+            [_nodeSearchResults addObject:child];
         }
     }
 }

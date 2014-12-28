@@ -54,7 +54,11 @@
 // --- search ---
 
 //@property (assign, nonatomic) BOOL isSearching;
-@property (strong, nonatomic) NSMutableArray *searchResults;
+@property (strong, nonatomic) NSMutableArray *nodeSearchResults;
+
+// inlining
+
+@property (assign, nonatomic) BOOL shouldInlineChildren;
 
 
 - (NSString *)nodeTitle;
@@ -63,7 +67,7 @@
 - (NSString *)nodeNote;
 
 - (NSArray *)nodePathArray;
-- (NSArray *)pathOfClass:(Class)aClass;
+- (NSArray *)nodePathOfClass:(Class)aClass;
 - (NSUInteger)nodeDepth;
 
 
@@ -82,7 +86,6 @@
 
 // inlining
 
-@property (assign, nonatomic) BOOL shouldInlineChildren;
 - (NSArray *)inlinedChildren;
 - (BOOL)nodeParentInlines;
 - (BOOL)nodeShouldIndent;
