@@ -616,6 +616,11 @@
     return NO;
 }
 
+- (BOOL)nodeSearchOnReturn
+{
+    return NO;
+}
+
 - (id)firstChildWithKindOfClass:(Class)aClass
 {
     for (id child in self.children)
@@ -897,5 +902,11 @@
 {
     [NSException raise:@"Missing method" format:nil];
 }
+
+- (void)nodeWillSelect
+{
+    
+}
+
 
 @end

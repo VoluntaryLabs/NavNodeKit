@@ -123,6 +123,7 @@
 - (BOOL)canSearch;
 - (void)search:(NSString *)aString;
 - (BOOL)nodeMatchesSearch:(NSString *)aString;
+- (BOOL)nodeSearchOnReturn;
 
 // actions
 
@@ -149,5 +150,7 @@
 - (void)updatedSlot:(NavSlot *)aNavSlot;
 
 - (void)delete;
+
+- (void)nodeWillSelect;
 
 @end
