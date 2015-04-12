@@ -466,7 +466,9 @@
 
 - (void)postSelfChanged
 {
-    [self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
+    //NSLog(@"%@ postSelfChanged", self);
+    [self performSelectorOnMainThread:@selector(justPostSelfChanged) withObject:nil waitUntilDone:YES];
+    //[self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.01];
 }
 
 - (void)postParentChanged
@@ -482,6 +484,7 @@
 
 - (void)justPostSelfChanged
 {
+    //NSLog(@"%@ justPostSelfChanged", self);
     [NSNotificationCenter.defaultCenter
         postNotificationName:NavNodeChangedNotification object:self];
 }
@@ -908,5 +911,9 @@
     
 }
 
+- (void)nodeDoubleClick
+{
+    
+}
 
 @end

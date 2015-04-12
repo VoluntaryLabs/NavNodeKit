@@ -115,6 +115,7 @@
 - (void)postSelfChanged;
 - (void)postParentChainChanged;
 - (void)nodePostSelected;
+- (void)justPostSelfChanged; // private but here for debugging
 
 - (id)firstChildWithKindOfClass:(Class)aClass;
 
@@ -152,5 +153,6 @@
 - (void)delete;
 
 - (void)nodeWillSelect;
+- (void)nodeDoubleClick;
 
 @end
