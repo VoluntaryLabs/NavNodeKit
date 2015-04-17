@@ -172,11 +172,16 @@
         NSMutableDictionary *info = [NSMutableDictionary dictionary];
         [info setObject:aChild forKey:@"child"];
         
+        /*
         NSNotification *note = [NSNotification notificationWithName:NavNodeAddedChildNotification
                                                              object:self
                                                            userInfo:info];
         
         [NSNotificationCenter.defaultCenter postNotification:note];
+        */
+        
+        [self postNoteName:NavNodeAddedChildNotification info:nil];
+
         self.nodeIsDirty = @YES;
         return YES;
     }
@@ -205,11 +210,27 @@
     [self.children removeObject:aChild];
     self.nodeIsDirty = @YES;
 
+    [self postNoteName:NavNodeRemovedChildNotification info:info];
+}
+
+- (void)postNoteName:(NSString *)name info:(NSDictionary *)info
+{
     NSNotification *note = [NSNotification notificationWithName:NavNodeRemovedChildNotification
                                                          object:self
                                                        userInfo:info];
+
+    // post on main thread
     
-    [NSNotificationCenter.defaultCenter postNotification:note];
+    dispatch_async(dispatch_get_main_queue(),^{
+
+        [[NSNotificationQueue defaultQueue]
+         enqueueNotification:note
+         postingStyle:NSPostWhenIdle
+         coalesceMask:NSNotificationCoalescingOnName | NSNotificationCoalescingOnSender
+         forModes:nil];
+
+    });
+    
 }
 
 - (void)mergeWithChildren:(NSArray *)newChildren
@@ -484,16 +505,20 @@
 
 - (void)justPostSelfChanged
 {
+    [self postNoteName:NavNodeChangedNotification info:nil];
+    
     //NSLog(@"%@ justPostSelfChanged", self);
-    [NSNotificationCenter.defaultCenter
-        postNotificationName:NavNodeChangedNotification object:self];
+    //[NSNotificationCenter.defaultCenter
+    //    postNotificationName:NavNodeChangedNotification object:self];
 }
 
 // --- remembered child path ---
 
 - (void)nodePostSelected
 {
-    [NSNotificationCenter.defaultCenter postNotificationName:NavNodeSelectedNotification object:self];
+    [self postNoteName:NavNodeSelectedNotification info:nil];
+
+    //[NSNotificationCenter.defaultCenter postNotificationName:NavNodeSelectedNotification object:self];
 }
 
 - (void)setDoesRememberChildPath:(NSNumber *)aBoolNumber
