@@ -225,12 +225,12 @@
 
         [[NSNotificationQueue defaultQueue]
          enqueueNotification:note
-         postingStyle:NSPostWhenIdle
+         //postingStyle:NSPostWhenIdle
+         postingStyle:NSPostASAP
          coalesceMask:NSNotificationCoalescingOnName | NSNotificationCoalescingOnSender
          forModes:nil];
 
     });
-    
 }
 
 - (void)mergeWithChildren:(NSArray *)newChildren
@@ -340,7 +340,7 @@
     {
         [self refresh];
     }
-    @catch (NSException * e)
+    @catch (NSException *e)
     {
         NSLog(@"refresh exception:\n %@", [e fullDescription]);
         
