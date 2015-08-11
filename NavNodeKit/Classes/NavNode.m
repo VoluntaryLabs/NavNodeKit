@@ -211,6 +211,7 @@
     self.nodeIsDirty = @YES;
 
     [self postNoteName:NavNodeRemovedChildNotification info:info];
+    [self postSelfChanged]; //  new
 }
 
 - (void)postNoteName:(NSString *)name info:(NSDictionary *)info
@@ -766,8 +767,8 @@
 - (void)delete
 {
     [self removeFromParent];
-    [self postSelfChanged];
-    [self postParentChanged];
+    //[self postSelfChanged];
+    //[self postParentChanged];
 }
 
 // dirty
