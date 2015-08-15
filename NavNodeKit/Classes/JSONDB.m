@@ -54,10 +54,12 @@
     }
     else if ([_location isEqualToString:JSONDB_IN_SERVER_FOLDER])
     {
+        /*
         if (self.serverFolder == nil)
         {
             [NSException raise:@"JSONDB.serverFolder not set" format:nil];
         }
+        */
         
         //NSString *folder = [[BMServerProcess sharedBMServerProcess] bundleDataPath];
         
