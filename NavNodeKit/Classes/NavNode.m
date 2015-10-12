@@ -343,11 +343,17 @@
     }
     @catch (NSException *e)
     {
+        [self stopRefreshTimer];
         NSLog(@"refresh exception:\n %@", [e fullDescription]);
         
         NSAlert *msgBox = [[NSAlert alloc] init];
         [msgBox setMessageText:e.name];
-        [msgBox addButtonWithTitle: @"OK"];
+        
+        if (![[msgBox messageText] containsCaseInsensitiveString:@"fatal"])
+        {
+            [msgBox addButtonWithTitle: @"OK"];
+        }
+        
         [msgBox addButtonWithTitle: @"Exit"];
         
         [msgBox beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow
@@ -361,9 +367,14 @@
             returnCode:(NSInteger)returnCode
            contextInfo:(void *)contextInfo
 {
-    if (returnCode == 1001)
+    if (returnCode == 1001 ||
+        [[alert messageText] containsCaseInsensitiveString:@"fatal"]) // not ideal
     {
         [NSApplication.sharedApplication terminate:self];
+    }
+    else
+    {
+        [self startRefreshTimerIfNeeded];
     }
 }
 
