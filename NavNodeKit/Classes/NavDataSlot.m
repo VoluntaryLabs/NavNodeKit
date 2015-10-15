@@ -91,7 +91,7 @@
     }
     else
     {
-        [NSException raise:@"no such node getter" format:nil];
+        [NSException raise:@"no such node getter" format:@""];
     }
     
     return nil;
@@ -121,7 +121,7 @@
     }
     else
     {
-        [NSException raise:@"no such node setter" format:nil];
+        [NSException raise:@"no such node setter" format:@""];
     }
 }
 
@@ -221,7 +221,7 @@
 {
     if (![aNumber isKindOfClass:NSNumber.class])
     {
-        [NSException raise:@"dataSlot lineCount attribute must be an NSNumber" format:nil];
+        [NSException raise:@"dataSlot lineCount attribute must be an NSNumber" format:@""];
     }
     
     [self setAttributeObject:aNumber forKey:@"lineCount"];

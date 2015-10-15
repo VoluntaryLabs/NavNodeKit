@@ -96,7 +96,7 @@
     }
     else if (![slot isKindOfClass:NavDataSlot.class])
     {
-        [NSException raise:@"wrong slot type" format:nil];
+        [NSException raise:@"wrong slot type" format:@""];
     }
     
     return slot;
@@ -115,7 +115,7 @@
     }
     else if (![slot isKindOfClass:NavActionSlot.class])
     {
-        [NSException raise:@"wrong slot type" format:nil];
+        [NSException raise:@"wrong slot type" format:@""];
     }
     
     return slot;

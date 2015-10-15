@@ -57,7 +57,7 @@
         /*
         if (self.serverFolder == nil)
         {
-            [NSException raise:@"JSONDB.serverFolder not set" format:nil];
+            [NSException raise:@"JSONDB.serverFolder not set" format:@""];
         }
         */
         
